@@ -80,6 +80,61 @@ Assim que o usuário aprovar (total ou parcialmente):
 - NÃO altere classes CSS, estrutura de layout, caminhos de arquivo ou o componente `deck-stage` — apenas conteúdo textual e estrutura de slides (adicionar/remover/reordenar elementos `<section>` se necessário)
 - Após editar, confirme o que foi alterado com um breve resumo
 
+### Passo 5: Verificação visual (opcional)
+
+Após confirmar as alterações, pergunte:
+
+> **Quer que eu verifique visualmente os slides alterados?** Capturo screenshots dos slides modificados para confirmar que nenhum conteúdo está cortado ou transbordando.
+
+Aguarde a resposta. Se o usuário confirmar, execute a verificação com o script abaixo — capturando **apenas os slides alterados** (pelos seus `data-label`), não o deck inteiro.
+
+```python
+import asyncio, os, pathlib
+from playwright.async_api import async_playwright
+
+# FILE = caminho absoluto do arquivo HTML revisado
+# LABELS = lista dos data-label dos slides alterados, ex: ["03 · Como criar", "05 · Hierarquias"]
+
+JOB = os.environ.get('CLAUDE_JOB_DIR', '/tmp')
+FILE = 'file://' + str(pathlib.Path('CAMINHO_DO_ARQUIVO').resolve())
+LABELS = ['LABEL_DO_SLIDE_1', 'LABEL_DO_SLIDE_2']
+
+async def main():
+    async with async_playwright() as p:
+        browser = await p.chromium.launch()
+        page = await browser.new_page(viewport={'width': 1280, 'height': 900})
+        await page.goto(FILE)
+        await page.wait_for_timeout(800)
+
+        total = await page.evaluate(
+            "() => document.querySelectorAll('deck-stage > section:not([data-deck-skip])').length"
+        )
+
+        for i in range(total):
+            if i > 0:
+                await page.keyboard.press('ArrowRight')
+                await page.wait_for_timeout(400)
+            label = await page.evaluate(
+                "() => { const a = document.querySelector('deck-stage > section[data-deck-active]'); return a ? a.getAttribute('data-label') : ''; }"
+            )
+            if label in LABELS:
+                slug = label.replace('/', '-').replace(' ', '-').replace('·', '').replace('--', '-').strip('-')
+                await page.screenshot(path=f"{JOB}/verify-{slug}.png")
+                print(f"Capturado: {label}")
+
+        await browser.close()
+
+asyncio.run(main())
+```
+
+Preencha `FILE` e `LABELS` com os valores do episódio atual antes de executar. Use `.venv/bin/python3` se a venv do projeto estiver disponível (`ls .venv/bin/python3`), senão use `python3` diretamente.
+
+Após capturar, exiba as screenshots e avalie:
+- Todo o conteúdo do slide está visível (nenhum texto cortado pela barra de navegação)?
+- O `code-block`, se presente, não transborda para fora do canvas?
+
+Se houver overflow, corrija o conteúdo (encurte bullets ou o code-block) e repita a captura até o slide estar ok.
+
 ## O que NÃO alterar
 
 - Design visual, classes CSS ou tokens de cor

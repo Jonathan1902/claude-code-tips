@@ -54,7 +54,7 @@
 
       <div class="tip-title-block">
         <h2 class="tip-title">Configure o CLAUDE.md</h2>
-        <p class="subtitle" style="margin-top: 14px;">Defina o contexto do projeto antes de começar</p>
+        <p class="subtitle" style="margin-top: 14px;">O arquivo que transforma o agente em um colega que conhece seu projeto</p>
       </div>
 
       <ul class="bullets" style="margin-bottom: var(--gap-section);">
@@ -64,21 +64,147 @@
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Defina o que o agente pode e não pode alterar</span>
+          <span>Documente restrições de compliance — o agente saberá o que nunca tocar</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Adicione comandos e fluxos frequentes como referência</span>
+          <span>Adicione comandos e fluxos frequentes como referência rápida</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Atualize conforme o projeto evolui — é a memória do agente</span>
+          <span>Defina o que o agente pode e não pode alterar no codebase</span>
         </li>
       </ul>
 
-      <div class="code-block"># CLAUDE.md — meu projeto
+      <div class="code-block"># CLAUDE.md — sistema de risco
 Stack: Python + FastAPI + PostgreSQL
-Nunca modificar: /legacy/* e /migrations/*</div>
+Nunca modificar: /legacy/*, /migrations/*, /audit-logs/*
+Compliance: toda alteração em cálculo de VaR exige revisão manual</div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="03 · Como criar" data-screen-label="Como criar">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Dica #01</span>
+        </div>
+        <span class="brand">Finance Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Comece com <code style="font-size: inherit; background: rgba(255,255,255,0.08); padding: 2px 10px; border-radius: 6px;">/init</code></h2>
+        <p class="subtitle" style="margin-top: 14px;">O Claude varre o repositório e gera um CLAUDE.md inicial para você</p>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Execute <strong>/init</strong> dentro do Claude Code — funciona em projetos novos e em legados sem documentação</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O arquivo gerado é um ponto de partida, não uma versão final — revise antes de commitar</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Acrescente contexto que o agente não consegue inferir só lendo o código: decisões de arquitetura, restrições regulatórias, acordos de equipe</span>
+        </li>
+      </ul>
+
+      <div class="code-block"># no terminal, dentro do projeto
+$ claude
+> /init
+# Claude analisa o codebase e cria o CLAUDE.md
+# Revise, ajuste e faça o commit junto com o código</div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="04 · Mantenha vivo" data-screen-label="Mantenha vivo">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Dica #01</span>
+        </div>
+        <span class="brand">Finance Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Trate como código, não como README</h2>
+        <p class="subtitle" style="margin-top: 14px;">Um CLAUDE.md desatualizado é pior do que nenhum</p>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Commite junto com o PR que muda stack, arquitetura ou padrões — o contexto evolui com o código</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Revise a cada marco importante: novo módulo, mudança de biblioteca, entrada de regulação</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Registre a data da última revisão no topo do arquivo — sinaliza para a equipe quando está ficando defasado</span>
+        </li>
+      </ul>
+
+      <div class="code-block"># CLAUDE.md — sistema de risco
+# Última revisão: 2025-06 (migração para FastAPI 0.115)
+Stack: Python + FastAPI + PostgreSQL</div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="05 · Hierarquias" data-screen-label="Hierarquias">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Dica #01</span>
+        </div>
+        <span class="brand">Finance Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Múltiplos níveis para codebases complexos</h2>
+        <p class="subtitle" style="margin-top: 14px;">O Claude lê todos os CLAUDE.md do caminho — do mais geral ao mais específico</p>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Raiz do repositório</strong> — regras globais: stack, padrões de commit, restrições de compliance</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Pasta de módulo</strong> — regras específicas daquela área, sem poluir o contexto global</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>.claude/</strong> — comandos customizados, hooks e permissões de agente</span>
+        </li>
+      </ul>
+
+      <div class="code-block">projeto/
+├── CLAUDE.md        # regras globais
+├── risco/
+│   └── CLAUDE.md    # regras do módulo de risco
+└── relatorios/
+    └── CLAUDE.md    # relatórios regulatórios</div>
 
       <div style="margin-top: auto; padding-top: 32px;">
         <div class="divider" style="width: 100%;"></div>
@@ -98,7 +224,7 @@ Nunca modificar: /legacy/* e /migrations/*</div>
 
       <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
         <h2 class="tip-title">Quer aprofundar?</h2>
-        <p class="subtitle" style="margin-top: 14px;">Recursos utilizados nessa série</p>
+        <p class="subtitle" style="margin-top: 14px;">Para dominar o CLAUDE.md e a memória do agente</p>
       </div>
 
       <div class="resource-list">
@@ -109,6 +235,10 @@ Nunca modificar: /legacy/* e /migrations/*</div>
         <div class="resource-card">
           <span class="resource-title">Configurando o CLAUDE.md</span>
           <span class="resource-url">anthropic.com/docs/claude-code/memory</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Hierarquias e escopos de memória</span>
+          <span class="resource-url">anthropic.com/docs/claude-code/memory#files</span>
         </div>
       </div>
 

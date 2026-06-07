@@ -4,3 +4,4 @@ review-design-frontend.md
 review-educational-content.md
 review-orchestrator.md
 .claude/settings.local.json
+.venv/
