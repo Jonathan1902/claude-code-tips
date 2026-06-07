@@ -1,82 +1,85 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Este arquivo fornece orientações ao Claude Code (claude.ai/code) ao trabalhar neste repositório.
 
-## Project Overview
+## Visão Geral do Projeto
 
-This is a static HTML slide deck project for "Finance Tech Drops" — a Brazilian Portuguese content series about technology tips for the financial market. The site is published to GitHub Pages from the `docs/` folder on the `gh-pages` branch.
+Projeto de slides HTML estáticos para "Finance Tech Drops" — série de conteúdo em português sobre tecnologia para o mercado financeiro. O site é publicado no GitHub Pages a partir da pasta `docs/` na branch `gh-pages`.
 
-There is no build step, package manager, or test suite. All development is done by editing files directly and previewing in a browser.
+Não há etapa de build, gerenciador de pacotes ou suite de testes. Todo o desenvolvimento é feito editando arquivos diretamente e visualizando no browser.
 
-## Architecture
+## Arquitetura
 
 ```
 docs/
-├── index.html          ← Home page — card grid linking to all tips
-├── slide-base.css      ← Shared design system for all deck files
-├── deck-stage.js       ← Web component powering slide navigation
-├── mascot.svg          ← Shared mascot SVG used in cover slides
+├── index.html          ← Página inicial — grade de cards com todos os episódios
+├── slide-base.css      ← Sistema de design compartilhado para todos os decks
+├── deck-stage.js       ← Web component que controla a navegação dos slides
+├── mascot.svg          ← SVG do mascote usado nos slides de capa
 ├── claude-code/
 │   ├── 01-configure-o-claude-md.html
 │   └── 02-o-que-e-claude-code.html
-├── aws/                ← (future)
-├── machine-learning/   ← (future)
-├── dados/              ← (future)
-└── analytics/          ← (future)
+├── aws/                ← (futuro)
+├── machine-learning/   ← (futuro)
+├── dados/              ← (futuro)
+└── analytics/          ← (futuro)
 ```
 
-**`docs/index.html`** — Home page. A regular HTML page (no `deck-stage`) with a card grid organized by theme. Each card links to its tip file. To add a new tip, add a `<a class="card">` inside the appropriate `<div class="card-grid">`. To add a new theme, add a `<div class="section-label">` + `<div class="card-grid">` block before the footer.
+**`docs/index.html`** — Página inicial. HTML simples (sem `deck-stage`) com grade de cards organizada por tema. Cada card linka para o arquivo do episódio. Para adicionar um novo episódio, insira um `<a class="card">` dentro do `<div class="card-grid">` do tema correspondente. Para um tema novo, adicione um bloco `<div class="section-label">` + `<div class="card-grid">` antes do `<footer>`.
 
-**`docs/slide-base.css`** — Single source of truth for all design tokens (`:root`), component classes, animations, and the `.home-btn`. Every deck file links this instead of embedding its own `<style>` block. To override `--accent` for a non-orange theme, add a one-line `:root` override in the deck file after the `<link>`.
+**`docs/slide-base.css`** — Fonte única de verdade para todos os design tokens (`:root`), classes de componentes, animações e o `.home-btn`. Todo arquivo de deck linka este CSS em vez de embutir seu próprio `<style>`. Para sobrescrever `--accent` em um tema não-laranja, adicione um `:root` de uma linha no arquivo do deck após o `<link>`.
 
-**`docs/deck-stage.js`** — Self-contained web component (`<deck-stage>`) handling keyboard navigation (←/→, PgUp/PgDn, Space, Home/End, R to reset, 1–9 to jump), touch navigation, auto-scaling (letterboxed), thumbnail rail, slide skip/reorder/duplicate/delete via right-click, and print-to-PDF. Slides are hidden (not unmounted) between navigation.
+**`docs/deck-stage.js`** — Web component auto-contido (`<deck-stage>`) com navegação por teclado (←/→, PgUp/PgDn, Espaço, Home/End, R para reiniciar, 1–9 para pular), navegação por toque, escala automática (letterbox), trilha de miniaturas, e pular/reordenar/duplicar/deletar slides via clique direito, e impressão em PDF. Slides são ocultados (não desmontados) entre navegações.
 
-**`docs/mascot.svg`** — The three-bar orange chart graphic used in cover slides. Reference as `<img src="../mascot.svg" alt="">` inside `.mascot-wrap`.
+**`docs/mascot.svg`** — Gráfico de barras laranja usado nos slides de capa. Referencie como `<img src="../mascot.svg" alt="">` dentro de `.mascot-wrap`.
 
-**`.claude/skills/new-tech-drop/SKILL.md`** — Project skill for generating new episodes. Invoke with `/new-tech-drop` or ask Claude to create a new tip/drop.
+**`.claude/skills/new-tech-drop/SKILL.md`** — Skill para gerar novos episódios. Use `/new-tech-drop` ou peça ao Claude para criar um novo episódio.
 
-**`TODO.md`** — Local task list. Ignored by git.
+**`.claude/skills/review-tech-drop/SKILL.md`** — Skill para revisar episódios existentes com foco em aprendizado adulto. Use `/review-tech-drop`.
 
-## Themes and Colours
+**`TODO.md`** — Lista de tarefas local. Ignorada pelo git.
 
-| Theme            | Folder             | CSS class          | Accent colour |
-|------------------|--------------------|--------------------|---------------|
-| Claude Code      | `claude-code/`     | `theme-claude-code`| `#FF6200`     |
-| AWS              | `aws/`             | `theme-aws`        | `#FF9900`     |
-| Machine Learning | `machine-learning/`| `theme-ml`         | `#FFFFFF`     |
-| Dados            | `dados/`           | `theme-dados`      | `#38BDF8`     |
-| Analytics        | `analytics/`       | `theme-analytics`  | `#94A3B8`     |
+## Temas e Cores
 
-## Deck File Structure
+| Tema              | Pasta               | Classe CSS home     | Cor accent |
+|-------------------|---------------------|---------------------|------------|
+| Claude Code       | `claude-code/`      | `theme-claude-code` | `#FF6200`  |
+| AWS               | `aws/`              | `theme-aws`         | `#FF9900`  |
+| Machine Learning  | `machine-learning/` | `theme-ml`          | `#FFFFFF`  |
+| Dados             | `dados/`            | `theme-dados`       | `#38BDF8`  |
+| Analytics         | `analytics/`        | `theme-analytics`   | `#94A3B8`  |
 
-Each tip file is a self-contained HTML page. Minimal head:
+## Estrutura de um Arquivo de Deck
+
+Cada arquivo de episódio é uma página HTML auto-contida. Cabeçalho mínimo:
 
 ```html
 <link rel="stylesheet" href="../slide-base.css">
 <script src="../deck-stage.js"></script>
 ```
 
-Typical slide sequence inside `<deck-stage width="1080" height="1080" no-rail>`:
+Sequência típica de slides dentro de `<deck-stage width="1080" height="1080" no-rail>`:
 
-1. **Capa** — cover with mascot, `series-label`, title, subtitle
-2. **Dica #XX** — tip slide with bullets and optional `code-block`
-3. *(optional)* **Concept block** — 4 content slides (Definição, Comparação, Decisão, Recap)
-4. **CTA · Saiba Mais** — resource links
-5. **CTA · Contribua** — call-to-action
+1. **Capa** — cover com mascote, `series-label` no formato `"Tema · Categoria"` (sem números), título e subtítulo
+2. **Slide de Dica** — bullets e `code-block` opcional
+3. *(opcional)* **Bloco de Conceito** — até 4 slides de conteúdo (Definição, Comparação, Decisão, Recap)
+4. **CTA · Saiba Mais** — links de recursos com subtítulo específico ao conteúdo do episódio
+5. **CTA · Contribua** — call-to-action fixo, sem variação entre episódios
 
-A fixed `<a class="home-btn" href="../index.html">← Home</a>` sits outside `<deck-stage>`.
+Um `<a class="home-btn" href="../index.html">← Home</a>` fixo fica fora do `<deck-stage>`.
 
-## Authoring Slides
+## Criando Slides
 
-- Add slides as `<section>` children of `<deck-stage>`. Do **not** set `position`, `width`, or `height` on `<section>` — the component manages that.
-- Available classes (all in `slide-base.css`): `.slide-header`, `.brand`, `.tag`, `.tag-dot`, `.bullets`, `.bullet-dot`, `.code-block`, `.divider`, `.subtitle`, `.tip-title`, `.resource-list`, `.resource-card`, `.resource-title`, `.resource-url`, `.resource-url--plain`, `.contribute-body`, `.contribute-box`.
-- Design canvas is 1080×1080 px. Type sizes and spacing come from CSS custom properties in `:root`.
-- Entrance animations are gated on `[data-deck-active]` + `@media (prefers-reduced-motion: no-preference)`. The base style is the visible end-state so print and reduced-motion show content correctly.
-- Slide footers use a plain divider: `<div style="margin-top: auto; padding-top: 32px;"><div class="divider" style="width: 100%;"></div></div>`
-- The Contribua CTA footer uses `flex-shrink: 0` instead (content fills available space above it).
-- Use `.resource-url--plain` instead of `.resource-url` when the text is a description, not a URL (avoids orange monospace styling).
-- To skip a slide from navigation and print, add `data-deck-skip` to its `<section>`.
+- Adicione slides como filhos `<section>` do `<deck-stage>`. **Não** defina `position`, `width` ou `height` em `<section>` — o componente gerencia isso.
+- Classes disponíveis (todas em `slide-base.css`): `.slide-header`, `.brand`, `.tag`, `.tag-dot`, `.bullets`, `.bullet-dot`, `.code-block`, `.divider`, `.subtitle`, `.tip-title`, `.resource-list`, `.resource-card`, `.resource-title`, `.resource-url`, `.resource-url--plain`, `.contribute-body`, `.contribute-box`, `.visual-placeholder`.
+- O canvas de design é 1080×1080 px. Tamanhos de fonte e espaçamentos vêm de custom properties CSS em `:root`.
+- Animações de entrada são condicionadas em `[data-deck-active]` + `@media (prefers-reduced-motion: no-preference)`. O estilo base é o estado final visível para impressão e reduced-motion mostrarem o conteúdo corretamente.
+- Footer padrão dos slides: `<div style="margin-top: auto; padding-top: 32px;"><div class="divider" style="width: 100%;"></div></div>`
+- O footer do slide Contribua usa `flex-shrink: 0` (o conteúdo preenche o espaço acima).
+- Use `.resource-url--plain` em vez de `.resource-url` quando o texto é uma descrição, não uma URL (evita estilo laranja monoespaçado).
+- Use `.visual-placeholder` para indicar onde uma imagem, gráfico, diagrama ou ícone deve ser inserido posteriormente.
+- Para pular um slide da navegação e da impressão, adicione `data-deck-skip` ao `<section>`.
 
-## Deployment
+## Deploy
 
-The site is served from GitHub Pages at the `docs/` directory on the `gh-pages` branch. Pushing to `gh-pages` deploys immediately — no CI pipeline.
+O site é servido pelo GitHub Pages na pasta `docs/` na branch `gh-pages`. Push para `gh-pages` faz deploy imediato — sem pipeline de CI.

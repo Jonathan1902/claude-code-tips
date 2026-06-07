@@ -1,7 +1,7 @@
 ---
 name: new-tech-drop
 description: >
-  Generates a complete HTML file for a new Finance Tech Drops episode: one Tip slide + a 5-slide Concept block (cover, definition, comparison, decision, recap), following the exact design system and file structure of the project. Use this skill whenever the user asks to create a new tip, a new drop, a new episode, or wants to add content — even if they just say "quero criar a dica #X" or "novo drop sobre Y".
+  Generates a complete HTML file for a new Finance Tech Drops episode: one Tip slide + an optional Concept block (definition, comparison, decision, recap), following the exact design system and file structure of the project. Aim for up to 10 slides total. Use this skill whenever the user asks to create a new tip, a new drop, a new episode, or wants to add content — even if they just say "quero criar a dica #X" or "novo drop sobre Y".
 ---
 
 # new-tech-drop
@@ -52,15 +52,17 @@ Não peça cor, número da dica, títulos de slide, bullets formatados, nem cont
 
 ## Passo 2 — Gerar o conteúdo dos slides
 
-Com base no briefing, crie o conteúdo completo do episódio:
+Com base no briefing, crie o conteúdo completo do episódio. Mire em até 10 slides no total (recomendação soft — prefira menos slides densos a muitos slides rasos).
 
-- **Capa da dica**: título (máx. 55 chars, sem ponto final) + subtítulo (máx. 70 chars, tom conversacional)
-- **Slide de Dica**: 3–4 bullets concisos e acionáveis + bloco de código se o assunto tiver exemplo de código natural
-- **Capa do Conceito**: série-label (ex.: `"Contexto · Fundamentos"`) + título + subtítulo
-- **Definição**: frase-âncora para o code-block + 3 bullets explicando o conceito
-- **Comparação**: 3 resource-cards com label e descrição (use `resource-url--plain` para texto corrido, não URLs)
-- **Decisão**: 2 bullets "Resolve" + 2 bullets "Não resolve" — use exemplos do mercado financeiro quando possível
-- **Recap**: 3 frases curtas que fixam o conceito
+- **Capa**: `series-label` no formato `"Tema · Categoria"` (ex.: `"Claude Code · Configuração"`, `"AWS · Segurança"`). Nunca use números. Título (máx. 55 chars, sem ponto final) + subtítulo (máx. 70 chars, tom conversacional).
+- **Slide de Dica**: 3–4 bullets concisos e acionáveis + bloco de código se o assunto tiver exemplo de código natural. Se um diagrama ou print de tela ilustraria melhor o conceito do que texto, indique onde ele entraria com um `.visual-placeholder`.
+- **Bloco de Conceito** (opcional, inclua só se agregar valor):
+  - **Definição**: frase-âncora para o code-block + 3 bullets explicando o conceito. Inclua `.visual-placeholder` quando um gráfico, diagrama ou ícone tornaria o conceito mais imediato.
+  - **Comparação**: 3 resource-cards com label e descrição (use `resource-url--plain` para texto corrido, não URLs).
+  - **Decisão**: 2 bullets "Resolve" + 2 bullets "Não resolve" — use exemplos do mercado financeiro quando possível.
+  - **Recap**: 3 frases curtas que fixam o conceito.
+- **Saiba Mais**: subtítulo que reflita o conteúdo específico do drop (ex.: `"Recursos para dominar o CLAUDE.md"`). Inclua 2–4 resource-cards com os links mais relevantes — quantidade livre, mesma estrutura HTML sempre.
+- **Contribua**: slide fixo, sem variação de conteúdo.
 
 Adapte o tom ao público: profissionais do mercado financeiro que codificam mas não são necessariamente devs full-time. Prefira exemplos concretos do setor (risco, compliance, relatórios, dados de mercado).
 
@@ -107,7 +109,57 @@ Substitua no template:
 </div>
 ```
 
-**Slide Contribua** — usa `flex-shrink: 0` no footer (não `margin-top: auto`). URL de contato: `jonathancosta888@gmail.com`.
+**Slide Saiba Mais** — o subtítulo deve refletir o conteúdo do drop (não uma frase genérica fixa). A quantidade de resource-cards é livre; a estrutura HTML é sempre a mesma:
+```html
+<section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+  <div class="slide-header">
+    <span class="brand">Finance Tech Drops</span>
+    <div class="tag"><span class="tag-dot"></span><span>Saiba Mais</span></div>
+  </div>
+  <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+    <h2 class="tip-title">Quer aprofundar?</h2>
+    <p class="subtitle" style="margin-top: 14px;">SUBTÍTULO ESPECÍFICO DO DROP</p>
+  </div>
+  <div class="resource-list">
+    <div class="resource-card">
+      <span class="resource-title">TÍTULO DO RECURSO</span>
+      <span class="resource-url">url.do.recurso.com</span>
+    </div>
+    <!-- repetir resource-card para cada link -->
+  </div>
+  <div style="margin-top: auto; padding-top: 32px;"><div class="divider" style="width: 100%;"></div></div>
+</section>
+```
+
+**Slide Contribua** — estrutura fixa, nunca alterar conteúdo:
+```html
+<section data-label="CTA · Contribua" data-screen-label="Contribua">
+  <div class="slide-header">
+    <span class="brand">Finance Tech Drops</span>
+    <div class="tag"><span class="tag-dot"></span><span>Participe</span></div>
+  </div>
+  <div class="contribute-body">
+    <div>
+      <h2 class="tip-title">Você usa isso no trabalho?</h2>
+      <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Finance Tech Drops.</p>
+    </div>
+    <div class="contribute-box">
+      <span class="contribute-cta">Enviar meu case</span>
+      <span class="contribute-arrow">→</span>
+    </div>
+    <span class="contribute-url">jonathancosta888@gmail.com</span>
+  </div>
+  <div style="flex-shrink: 0;"><div class="divider" style="width: 100%;"></div></div>
+</section>
+```
+
+**Visual placeholder** — use quando um gráfico, diagrama, print de tela ou ícone tornaria o conceito mais imediato do que texto. O placeholder sinaliza ao autor onde inserir o recurso visual depois:
+```html
+<div class="visual-placeholder">
+  [ gráfico · diagrama de fluxo · print de tela ]<br>adicionar recurso visual aqui
+</div>
+```
+Ajuste a descrição dentro dos colchetes para o tipo de visual esperado (ex.: `[ diagrama de arquitetura ]`, `[ captura de tela do terminal ]`, `[ ícone ilustrativo ]`).
 
 ## Passo 4 — Inserir o card na home
 

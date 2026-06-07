@@ -326,3 +326,23 @@ section {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.40);
 }
+
+/* Visual placeholder — substituir por imagem, gráfico ou ícone real */
+.visual-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px dashed rgba(255, 255, 255, 0.20);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding: 20px;
+  min-height: 180px;
+}
