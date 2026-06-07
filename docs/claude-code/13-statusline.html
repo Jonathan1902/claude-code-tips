@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statusline do Claude Code · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <!-- 01 · Capa -->
+    <section data-label="01 · Capa" data-screen-label="Statusline do Claude Code">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Produtividade</span>
+          <h1 class="cover-title">Statusline do Claude Code</h1>
+          <p class="subtitle">Leia o painel de bordo do agente sem sair do terminal.</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 02 · Dica principal -->
+    <section data-label="02 · Dica" data-screen-label="A Dica">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">A statusline mostra tudo que importa</h2>
+        <p class="subtitle" style="margin-top: 14px;">Tokens, custo, modelo e permissões — em tempo real</p>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);"># ao abrir o Claude Code, o rodapé exibe:
+✦ claude-sonnet-4-5 · 12.4k tokens · $0.08 · ✔ auto</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Exibe o <strong>modelo ativo</strong> — você sabe exatamente qual Claude está rodando</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Tokens consumidos</strong> na sessão atual — sinal de alerta antes de estourar o contexto</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Custo acumulado</strong> em USD — controle de gasto por tarefa, não por mês</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Modo de permissão</strong> ativo — auto, manual ou bypassPermissions</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 03 · Definição -->
+    <section data-label="03 · Definição" data-screen-label="Veja onde ela aparece">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Veja onde ela aparece</h2>
+        <p class="subtitle" style="margin-top: 14px;">Uma linha fixa, sempre visível no rodapé do terminal</p>
+      </div>
+
+      <div class="visual-placeholder">
+        [ captura de tela do terminal ]<br>statusline anotada com setas identificando cada campo: modelo · tokens · custo · modo de permissão
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Fica fixada no rodapé da sessão — não some entre respostas</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Atualiza automaticamente após cada interação, sem comandos extras</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 04 · Comparação: campos da statusline -->
+    <section data-label="04 · Campos" data-screen-label="Campos">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que cada campo significa</h2>
+        <p class="subtitle" style="margin-top: 14px;">Leia da esquerda para a direita</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Modelo ativo</span>
+          <span class="resource-url resource-url--plain">Qual Claude está respondendo agora — Opus, Sonnet ou Haiku. Mude com <code>--model</code> ou CLAUDE.md.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Tokens na sessão</span>
+          <span class="resource-url resource-url--plain">Total de tokens de entrada + saída acumulados. Perto do limite? Compacte o contexto com <code>/compact</code>.</span>
+        </div>
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">Custo em USD</span>
+          <span class="resource-url resource-url--plain">Custo real da sessão. O campo mais usado por squads de tecnologia financeira para controlar gasto por tipo de tarefa — relatório, refatoração, revisão.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Modo de permissão</span>
+          <span class="resource-url resource-url--plain"><strong>auto</strong> pede confirmação; <strong>bypassPermissions</strong> age direto. Visível para não esquecer em qual modo você está.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 05 · Decisão -->
+    <section data-label="05 · Decisão" data-screen-label="Quando usar">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">A statusline resolve o seu caso?</h2>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> monitorar custo por tarefa — saber quanto custou gerar um relatório de risco completo</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> detectar que o contexto está quase cheio antes de perder respostas relevantes</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> histórico de custo entre sessões — para isso, use a API com logging próprio</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> alertas automáticos de limite de gasto — monitore externamente no painel Anthropic</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 06 · Configuração -->
+    <section data-label="06 · Configuração" data-screen-label="Configuração">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Como ajustar o que aparece</h2>
+        <p class="subtitle" style="margin-top: 14px;">Personalize via settings.json ou linha de comando</p>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);"># Trocar o modelo exibido na statusline:
+claude --model claude-opus-4-5
+
+# Ou na sessão aberta, sem reiniciar:
+/model</div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);"># Forçar modo manual (fica visível na statusline):
+claude --permission-mode manual
+
+# Desativar custo (útil em demos e capturas de tela):
+# settings.json → "showCost": false</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O campo de modelo muda imediatamente ao trocar com <code>--model</code> ou via <code>/model</code> na sessão</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Em ambientes regulados (compliance), ative o <strong>modo manual</strong> para deixar explícito que nenhuma ação roda sem aprovação</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Equipes de compliance podem padronizar o modo manual no CLAUDE.md do projeto — garante consistência entre todos os devs do time</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 07 · Recap -->
+    <section data-label="07 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+        <p class="subtitle" style="margin-top: 14px;">Você conseguiria explicar a statusline para um colega agora?</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>A statusline é o <strong>painel de bordo</strong> do Claude Code — modelo, tokens, custo e permissão em tempo real</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Use o campo de tokens como <strong>sinal de alerta</strong>: próximo do limite, compacte com <code>/compact</code></span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O custo por sessão permite <strong>estimar e comparar</strong> tarefas — relatório vs. refatoração vs. revisão</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 08 · Saiba Mais -->
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Recursos para dominar a statusline e o monitoramento do Claude Code</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Referência de configurações do Claude Code</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/settings</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Gerenciamento de contexto e tokens</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/context-management</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Modos de permissão do Claude Code</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/permissions</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 09 · Contribua -->
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>

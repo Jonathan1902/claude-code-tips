@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hooks do Claude Code · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <!-- 01 · Capa -->
+    <section data-label="01 · Capa" data-screen-label="Hooks do Claude Code">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Automação</span>
+          <h1 class="cover-title">Hooks do Claude Code</h1>
+          <p class="subtitle">Execute comandos automáticos antes e depois de cada ação do agente.</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 02 · Dica -->
+    <section data-label="02 · Dica" data-screen-label="A Dica">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Configure hooks para automatizar guardrails</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);"># .claude/settings.json
+{
+  "hooks": {
+    "PreToolUse": [{
+      "matcher": "Bash",
+      "hooks": [{"type": "command",
+        "command": "bash .claude/guardrails.sh"}]
+    }],
+    "Stop": [{
+      "hooks": [{"type": "command",
+        "command": "python notify_slack.py"}]
+    }]
+  }
+}</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Hooks disparam comandos shell em resposta a eventos do agente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>PreToolUse</strong> roda antes de cada ferramenta — bloqueia ações indesejadas</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>PostToolUse</strong> roda após a ferramenta — ideal para logs e auditorias</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Stop</strong> roda quando o agente termina — notificações e relatórios automáticos</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 03 · Definição -->
+    <section data-label="03 · Definição" data-screen-label="O que são Hooks">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Hooks em uma frase</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">Hook = evento + matcher + comando shell
+# Ex.: em todo uso da ferramenta Bash,
+# rode o script de guardrail antes de executar</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>São configurados em <strong>settings.json</strong> — versionados junto com o projeto</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Recebem o contexto via <strong>stdin JSON</strong> — ex.: <code>{"tool":"Bash","input":{"command":"rm -rf /tmp/prod"}}</code> — ferramenta, parâmetros e resultado</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Se saírem com código != 0, podem <strong>bloquear ou interromper</strong> a ação do agente</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 04 · Comparação -->
+    <section data-label="04 · Comparação" data-screen-label="Tipos de Hook">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Os quatro eventos principais</h2>
+        <p class="subtitle" style="margin-top: 14px;">Cada um cobre uma etapa diferente do ciclo do agente</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">PreToolUse</span>
+          <span class="resource-url resource-url--plain">Antes da ferramenta rodar. Use para validar, bloquear ou logar a intenção.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">PostToolUse</span>
+          <span class="resource-url resource-url--plain">Após a ferramenta completar. Use para auditar, formatar output ou disparar pipelines.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Stop</span>
+          <span class="resource-url resource-url--plain">Quando o agente encerra a tarefa. Use para notificações, relatórios e métricas.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Notification</span>
+          <span class="resource-url resource-url--plain">Quando o agente emite uma mensagem de usuário. Use para roteamento e alertas.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 05 · Decisão -->
+    <section data-label="05 · Decisão" data-screen-label="Quando usar Hooks">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Hooks resolvem o seu caso?</h2>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> impedir que o agente edite arquivos de configuração de produção (PreToolUse + matcher "Write")</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> enviar mensagem no Slack ao fim de cada geração de relatório regulatório (Stop)</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> lógica de negócio complexa — hooks são scripts leves, não substitutos de testes</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> aprovação humana interativa em cada passo — use o modo Plan para isso</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 06 · Exemplos Práticos -->
+    <section data-label="06 · Exemplos" data-screen-label="Exemplos Financeiros">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Casos reais do mercado financeiro</h2>
+        <p class="subtitle" style="margin-top: 14px;">Guardrails e automações que protegem e avisam</p>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);"># PostToolUse → auditoria em audit.log
+jq -r '[.tool, .input.file_path, now | todate]
+  | @tsv' >> ~/.claude/audit.log</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Auditoria:</strong> PostToolUse loga cada arquivo editado em audit.log com timestamp e usuário</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Compliance:</strong> PreToolUse bloqueia escrita em diretórios de dados sensíveis (PII, carteiras)</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Notificação:</strong> Stop dispara alerta no Teams quando geração de relatório BACEN é concluída</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 07 · Recap -->
+    <section data-label="07 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+        <p class="subtitle" style="margin-top: 14px;">Você conseguiria configurar seu primeiro hook hoje?</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Comece pelo <strong>Stop</strong>: notificar quando o agente termina é o caso mais simples e mais útil</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Hooks transformam o agente em um sistema com <strong>guardrails automatizados</strong></span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Configure em <strong>settings.json</strong> — funciona em todos os projetos do time</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 08 · Saiba Mais -->
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Da configuração básica ao guardrail de compliance — próximos passos</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Documentação Oficial: Hooks</span>
+          <span class="resource-url">docs.anthropic.com/en/docs/claude-code/hooks</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Referência de settings.json</span>
+          <span class="resource-url">docs.anthropic.com/en/docs/claude-code/settings</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Exemplos de hooks na comunidade</span>
+          <span class="resource-url">github.com/anthropics/claude-code/discussions</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 09 · Contribua -->
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>

@@ -4,6 +4,13 @@
 
 set -euo pipefail
 
+LOG_FILE="$(dirname "$0")/validate-drop.log"
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+
+log() {
+  echo "[$TIMESTAMP] $*" >> "$LOG_FILE"
+}
+
 # Extrai o caminho do arquivo editado a partir do JSON recebido via stdin
 FILE=$(jq -r '.tool_input.file_path // empty' 2>/dev/null)
 
@@ -33,6 +40,10 @@ if [ "$BASENAME" = "index.html" ]; then
     echo "⚠️  Jonnies Tech Drops — validação: $BASENAME"
     for e in "${ERRORS[@]}"; do echo "$e"; done
     echo ""
+    log "ERRO   $FILE"
+    for e in "${ERRORS[@]}"; do log "       $e"; done
+  else
+    log "OK     $FILE"
   fi
   exit 0
 fi
@@ -91,6 +102,10 @@ if [ ${#ERRORS[@]} -gt 0 ]; then
   echo "⚠️  Jonnies Tech Drops — validação: $(basename "$FILE")"
   for e in "${ERRORS[@]}"; do echo "$e"; done
   echo ""
+  log "ERRO   $FILE"
+  for e in "${ERRORS[@]}"; do log "       $e"; done
+else
+  log "OK     $FILE"
 fi
 
 exit 0

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCPs: Conecte o Claude Code ao Mundo · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <!-- 01 · Capa -->
+    <section data-label="01 · Capa" data-screen-label="MCPs: Conecte ao Mundo">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Integrações</span>
+          <h1 class="cover-title">MCPs: Conecte o Claude Code ao Mundo</h1>
+          <p class="subtitle">Bancos de dados, APIs e Slack dentro do seu agente.</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 02 · Dica Principal -->
+    <section data-label="02 · Dica" data-screen-label="A Dica">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Conecte o agente às suas ferramentas reais</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);"># .claude/settings.json
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres",
+               "postgresql://user:pass@localhost/riscos"]
+    },
+    "slack": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"]
+    }
+  }
+}</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>MCPs são servidores locais que expõem ferramentas e dados ao agente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Configure em <strong>.claude/settings.json</strong> — ativo apenas no projeto atual</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O agente chama as ferramentas do MCP como se fossem comandos nativos</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 03 · Definição -->
+    <section data-label="03 · Definição" data-screen-label="O que é MCP">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">MCP em uma frase</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">MCP é um protocolo aberto que permite ao Claude
+conversar com qualquer sistema externo —
+banco de dados, API, SaaS — sem precisar
+de código de integração customizado.</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>MCP = Model Context Protocol — padrão criado pela Anthropic, open source</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O servidor MCP traduz os pedidos do agente para chamadas reais no sistema</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 04 · Comparação -->
+    <section data-label="04 · Comparação" data-screen-label="Comparação">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Três formas de integrar o agente</h2>
+        <p class="subtitle" style="margin-top: 14px;">Qual nível de esforço faz sentido para você?</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Bash / Scripts</span>
+          <span class="resource-url resource-url--plain">O agente roda comandos de shell. Simples, mas limitado a arquivos locais e CLIs.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Integração via API customizada</span>
+          <span class="resource-url resource-url--plain">Você escreve o wrapper. Controle total, mas exige dev de integração dedicado.</span>
+        </div>
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">MCP Server</span>
+          <span class="resource-url resource-url--plain">Instale um servidor pronto ou construa o seu com um SDK (Python, TypeScript). Reutilizável em qualquer projeto Claude.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 05 · Decisão -->
+    <section data-label="05 · Decisão" data-screen-label="Quando usar MCP">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">MCP resolve o seu caso?</h2>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> consultar base de dados de risco e gerar relatório automaticamente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> postar alertas de compliance no Slack quando uma regra é violada</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> sistemas legados sem API ou protocolo de rede acessível</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> dados em planilhas isoladas sem nenhuma forma de acesso programático</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 06 · Exemplos no mercado financeiro -->
+    <section data-label="06 · Exemplos Fin" data-screen-label="Exemplos Financeiros">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">MCPs úteis no mercado financeiro</h2>
+        <p class="subtitle" style="margin-top: 14px;">Casos práticos para quem trabalha com risco, dados e compliance</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Postgres / SQLite</span>
+          <span class="resource-url resource-url--plain">Consulte carteiras, posições e histórico de trades direto do agente — sem exportar CSV.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Google Drive</span>
+          <span class="resource-url resource-url--plain">Leia e atualize planilhas de controle regulatório sem sair do terminal.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Slack</span>
+          <span class="resource-url resource-url--plain">Envie alertas de limite de risco ou resumos diários para o canal da mesa de operações.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 07 · Recap -->
+    <section data-label="07 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+        <p class="subtitle" style="margin-top: 14px;">Você já sabe o suficiente para conectar o agente ao seu primeiro sistema.</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Com MCP, o agente age sobre <strong>dados reais</strong> — não apenas sobre arquivos do projeto</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Configure em <strong>.claude/settings.json</strong> — sem alterar o código do agente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Qual sistema você conectaria primeiro? Postgres, Slack ou Google Drive?</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 08 · Saiba Mais -->
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Recursos para começar com MCPs no Claude Code</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Model Context Protocol — Documentação Oficial</span>
+          <span class="resource-url">modelcontextprotocol.io</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">MCPs no Claude Code (Anthropic Docs)</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/mcp</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Lista de servidores MCP prontos para uso</span>
+          <span class="resource-url">github.com/modelcontextprotocol/servers</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Crie seu próprio MCP Server (quickstart)</span>
+          <span class="resource-url">modelcontextprotocol.io/quickstart/server</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 09 · Contribua -->
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>

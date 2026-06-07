@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subagents no Claude Code · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <!-- 01 · Capa -->
+    <section data-label="01 · Capa" data-screen-label="Subagents no Claude Code">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Automação</span>
+          <h1 class="cover-title">Subagents no Claude Code</h1>
+          <p class="subtitle">Delegue tarefas complexas para agentes especializados rodando em paralelo.</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 02 · Dica -->
+    <section data-label="02 · Dica" data-screen-label="O que são Subagents">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que são Subagents?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Claude Code pode delegar partes do trabalho para agentes filhos</p>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Subagents são instâncias separadas do Claude que rodam tarefas específicas sob comando do agente principal</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O agente principal <strong>coordena</strong>; os subagents <strong>executam</strong> — cada um com seu próprio contexto isolado</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Tarefas independentes rodam <strong>em paralelo</strong>, reduzindo o tempo total de execução</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Para ativar, basta pedir ao Claude que trabalhe em X e Y <strong>ao mesmo tempo</strong> — ele usa a ferramenta Task automaticamente</span>
+        </li>
+      </ul>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">"Compare as carteiras de crédito dos fundos A, B e C
+em paralelo e sinalize as inconsistências de provisão."</div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 03 · Definição -->
+    <section data-label="03 · Definição" data-screen-label="Ferramenta Task">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">A ferramenta Task por dentro</h2>
+        <p class="subtitle" style="margin-top: 14px;">Como o Claude Code spawna subagents na prática</p>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">[ Orquestrador ] — recebe o prompt e define as tarefas
+       ├── [ Subagent A ] — analisa fundo A
+       ├── [ Subagent B ] — analisa fundo B
+       └── [ Subagent C ] — analisa fundo C
+[ Consolidação ] — orquestrador recebe os 3 resultados
+                   e entrega a resposta final</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Cada subagent recebe um <strong>prompt isolado</strong> — sem acesso ao histórico completo do orquestrador</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Resultados são retornados ao agente principal, que <strong>consolida e decide</strong> o próximo passo</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O paralelismo é gerenciado automaticamente — sem configuração extra do usuário</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 04 · Comparação -->
+    <section data-label="04 · Comparação" data-screen-label="Tipos de Subagents">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Perfis de subagents disponíveis</h2>
+        <p class="subtitle" style="margin-top: 14px;">Claude escolhe o perfil certo para cada tarefa delegada</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Explore</span>
+          <span class="resource-url resource-url--plain">Navega o repositório, lê arquivos e mapeia dependências sem fazer alterações.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Plan</span>
+          <span class="resource-url resource-url--plain">Elabora um plano de ação detalhado antes de qualquer execução — ideal para tarefas de alto risco.</span>
+        </div>
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">General-purpose</span>
+          <span class="resource-url resource-url--plain">Executa tarefas completas: lê, edita, roda comandos e reporta ao orquestrador.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 05 · Decisão -->
+    <section data-label="05 · Decisão" data-screen-label="Quando usar Subagents">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Subagents resolvem o seu caso?</h2>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> auditar três pipelines de dados de mercado ao mesmo tempo e comparar inconsistências</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> gerar relatórios regulatórios para diferentes fundos em paralelo sem misturar contextos</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> tarefas sequenciais onde cada passo depende do anterior — use execução em linha</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> tarefas simples e rápidas — o overhead de spawn não compensa</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 06 · Recap -->
+    <section data-label="06 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+        <p class="subtitle" style="margin-top: 14px;">Três pontos que você já pode aplicar amanhã</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Isole o contexto:</strong> delegue cada tarefa a um subagent para evitar que estados diferentes se misturem</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Ative o paralelismo:</strong> peça ao Claude para trabalhar em X e Y <strong>ao mesmo tempo</strong> — ele usa a ferramenta Task automaticamente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Escolha o momento certo:</strong> use subagents para tarefas independentes e demoradas; mantenha em linha quando os passos forem sequenciais</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Reflita:</strong> qual tarefa do seu dia a dia poderia ser dividida em partes independentes para rodar em paralelo?</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- CTA · Saiba Mais -->
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Recursos para dominar subagents e orquestração no Claude Code</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Subagents — Documentação Oficial</span>
+          <span class="resource-url">docs.anthropic.com/pt/docs/claude-code/sub-agents</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Ferramenta Task e Paralelismo</span>
+          <span class="resource-url">docs.anthropic.com/pt/docs/claude-code/how-claude-code-uses-tools</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Construindo sistemas multi-agente</span>
+          <span class="resource-url">docs.anthropic.com/pt/docs/build-with-claude/agentic-tools</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- CTA · Contribua -->
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>

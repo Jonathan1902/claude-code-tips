@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills do Claude Code · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <!-- 01 · Capa -->
+    <section data-label="01 · Capa" data-screen-label="Skills do Claude Code">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Automação</span>
+          <h1 class="cover-title">Skills do Claude Code</h1>
+          <p class="subtitle">Crie atalhos inteligentes para tarefas que você repete todo dia.</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 02 · Dica -->
+    <section data-label="02 · Dica" data-screen-label="O que são Skills">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que são Skills?</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">.claude/
+└── skills/
+    └── gera-relatorio/
+        └── SKILL.md   ← instrução da skill</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Você digita <strong>/gera-relatorio</strong> e o agente produz o relatório de posições — sem redigitar nada.</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Skills são <strong>mini-roteiros</strong> que ensinam o agente a executar uma tarefa específica do seu jeito — basta invocar com <strong>/nome-da-skill</strong></span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Ficam versionadas no repo — <strong>todo o time acessa</strong> as mesmas automações</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Uma skill bem escrita elimina <strong>5–10 minutos</strong> de prompt repetitivo por tarefa — multiplicado pelo time todo.</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 03 · Definição -->
+    <section data-label="03 · Definição" data-screen-label="Anatomia de uma Skill">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Anatomia de um SKILL.md</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);"># gera-relatorio
+
+## Objetivo
+Gerar relatório de posições em Markdown
+a partir dos dados de `posicoes.csv`.
+
+## Passos
+1. Leia `posicoes.csv`
+2. Calcule PnL por ativo
+3. Grave em `relatorio-YYYY-MM-DD.md`</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Inclua o contexto necessário: arquivos de entrada, formatos de saída, regras de negócio</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Quanto mais específico o SKILL.md, mais previsível o resultado</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Escreva em Markdown simples — o agente lê e segue como se fosse um briefing</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 04 · Comparação -->
+    <section data-label="04 · Comparação" data-screen-label="Skills vs Alternativas">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Skills vs outras abordagens</h2>
+        <p class="subtitle" style="margin-top: 14px;">Cada opção serve a um perfil diferente</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">📋 Prompt manual no chat</span>
+          <span class="resource-url resource-url--plain">Você redigita as instruções toda vez. Não é versionado e não compartilha com o time.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">🔧 Script de shell / Python</span>
+          <span class="resource-url resource-url--plain">Automação rígida. Não adapta ao contexto e exige manutenção quando o fluxo muda.</span>
+        </div>
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">⚡ Skill com SKILL.md</span>
+          <span class="resource-url resource-url--plain">Instrução em linguagem natural, versionada no repo. O agente adapta ao contexto do projeto.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 05 · Decisão -->
+    <section data-label="05 · Decisão" data-screen-label="Quando usar Skills">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Skills resolvem o seu caso?</h2>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> gerar rascunho de relatório de risco toda manhã com /gera-relatorio</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> padronizar review de PRs com /code-review seguindo checklist de compliance</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> tarefas únicas e espontâneas — um prompt direto no chat é mais rápido</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> automações que precisam rodar sem intervenção humana — use hooks ou CI/CD</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 06 · Recap -->
+    <section data-label="06 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+        <p class="subtitle" style="margin-top: 14px;">Próximo passo: crie <code>.claude/skills/minha-skill/SKILL.md</code> com 3 linhas descrevendo uma tarefa que você repete.</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Skills = SKILL.md em <strong>.claude/skills/nome/</strong> — Markdown simples, sem código</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Invoque com <strong>/nome-da-skill</strong> e o agente executa o roteiro automaticamente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Versione no repo — toda nova skill vira <strong>padrão do time</strong> sem treinamento extra.</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- CTA · Saiba Mais -->
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Recursos para criar e evoluir suas Skills no Claude Code</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Slash Commands e Skills — Documentação Oficial</span>
+          <span class="resource-url">docs.anthropic.com/pt/docs/claude-code/slash-commands</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Customizando o Claude Code com CLAUDE.md e Skills</span>
+          <span class="resource-url">docs.anthropic.com/pt/docs/claude-code/memory</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Exemplos práticos de Skills no repositório oficial</span>
+          <span class="resource-url">github.com/anthropics/claude-code/tree/main/examples</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- CTA · Contribua -->
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>
