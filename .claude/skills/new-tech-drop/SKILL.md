@@ -6,138 +6,134 @@ description: >
 
 # new-tech-drop
 
-Gera o arquivo HTML completo de um novo episódio Finance Tech Drops e o card correspondente para a home.
+Gera o arquivo HTML completo de um novo episódio Finance Tech Drops e insere o card na home automaticamente.
 
 ## Estrutura do projeto
 
 ```
 docs/
 ├── index.html                          ← Home (lista de dicas)
-├── deck-stage.js
+├── slide-base.css                      ← Sistema de design compartilhado
+├── deck-stage.js                       ← Web component de navegação
+├── mascot.svg                          ← Mascote usado nas capas
 ├── claude-code/
-│   └── 01-configure-o-claude-md.html  ← exemplo de referência
+│   ├── 01-configure-o-claude-md.html  ← referência: dica simples (sem bloco conceito)
+│   └── 02-o-que-e-claude-code.html    ← referência: episódio completo (dica + conceito)
 ├── aws/
 ├── machine-learning/
-├── python/
+├── dados/
 └── analytics/
 ```
 
-Cada dica fica em `docs/<tema>/<número>-<slug>.html`. Temas disponíveis e suas cores CSS:
+Temas disponíveis:
 
-| Tema              | Pasta            | Classe CSS home       | Cor accent no deck |
-|-------------------|------------------|-----------------------|--------------------|
-| Claude Code       | `claude-code/`   | `theme-claude-code`   | `#FF6200`          |
-| AWS               | `aws/`           | `theme-aws`           | `#FF9900`          |
-| Machine Learning  | `machine-learning/` | `theme-ml`         | `#FFFFFF`          |
-| Dados             | `dados/`         | `theme-dados`         | `#38BDF8`          |
-| Analytics         | `analytics/`     | `theme-analytics`     | `#94A3B8`          |
+| Tema              | Pasta               | Classe CSS home     | Cor accent |
+|-------------------|---------------------|---------------------|------------|
+| Claude Code       | `claude-code/`      | `theme-claude-code` | `#FF6200`  |
+| AWS               | `aws/`              | `theme-aws`         | `#FF9900`  |
+| Machine Learning  | `machine-learning/` | `theme-ml`          | `#FFFFFF`  |
+| Dados             | `dados/`            | `theme-dados`       | `#38BDF8`  |
+| Analytics         | `analytics/`        | `theme-analytics`   | `#94A3B8`  |
 
-## Passo 1 — Coletar o conteúdo
+## Passo 1 — Detectar contexto e coletar briefing
 
-Pergunte ao usuário (tudo de uma vez):
+Antes de perguntar ao usuário, leia `docs/index.html` e identifique:
+- O maior `card-number` com formato `Dica #NN` — o próximo número é esse + 1
+- Quais temas já existem (seções `section-label` presentes)
 
-**Metadados:**
-- Tema (Claude Code / AWS / Machine Learning / Python / Analytics)
-- Número da dica (ex.: `#02`) e slug para o nome do arquivo (ex.: `use-subagentes`)
-- Cor accent do tema (use a tabela acima)
+Pergunte ao usuário (tudo de uma vez, em linguagem simples):
 
-**Slide de Dica:**
-- Título (máx. 55 chars)
-- Subtítulo (máx. 70 chars)
-- 3–4 bullets (frases curtas, imperativas ou afirmativas, máx. 90 chars cada)
-- Bloco de código opcional (conteúdo exato — preserve espaços e quebras de linha)
+1. **Tema** — Claude Code, AWS, Machine Learning, Dados ou Analytics
+2. **Assunto** — o que a dica ensina (ex.: "usar subagentes para tarefas paralelas")
+3. **2–3 pontos principais** que o leitor deve levar — podem ser rascos, você vai refinar
+4. **Slug** para o nome do arquivo (ex.: `use-subagentes`)
 
-**Bloco de Conceito (5 slides):**
-- Título do conceito e subtítulo da capa
-- Série / label (ex.: "Contexto · Fundamentos")
-- CC-02 Definição: título + frase-âncora para code-block + 3 bullets
-- CC-03 Comparação: título + subtítulo + 3 resource-cards (label + descrição)
-- CC-04 Decisão: título + 2 bullets "Resolve" + 2 bullets "Não resolve"
-- CC-05 Recap: título + subtítulo + 3 frases de fechamento
+Não peça cor, número da dica, títulos de slide, bullets formatados, nem conteúdo de cada slide individualmente. Você vai gerar tudo isso.
 
-**Card para a home:**
-- Descrição curta (1–2 frases para exibir no card da home, máx. 120 chars)
+## Passo 2 — Gerar o conteúdo dos slides
 
-## Passo 2 — Gerar o arquivo da dica
+Com base no briefing, crie o conteúdo completo do episódio:
 
-Crie `docs/<tema>/<número>-<slug>.html` copiando a estrutura de
-`docs/claude-code/01-configure-o-claude-md.html` como referência. O head deve ser:
+- **Capa da dica**: título (máx. 55 chars, sem ponto final) + subtítulo (máx. 70 chars, tom conversacional)
+- **Slide de Dica**: 3–4 bullets concisos e acionáveis + bloco de código se o assunto tiver exemplo de código natural
+- **Capa do Conceito**: série-label (ex.: `"Contexto · Fundamentos"`) + título + subtítulo
+- **Definição**: frase-âncora para o code-block + 3 bullets explicando o conceito
+- **Comparação**: 3 resource-cards com label e descrição (use `resource-url--plain` para texto corrido, não URLs)
+- **Decisão**: 2 bullets "Resolve" + 2 bullets "Não resolve" — use exemplos do mercado financeiro quando possível
+- **Recap**: 3 frases curtas que fixam o conceito
 
+Adapte o tom ao público: profissionais do mercado financeiro que codificam mas não são necessariamente devs full-time. Prefira exemplos concretos do setor (risco, compliance, relatórios, dados de mercado).
+
+## Passo 3 — Gerar o arquivo HTML
+
+Crie `docs/<tema>/<número>-<slug>.html` usando `docs/claude-code/02-o-que-e-claude-code.html` como referência de estrutura (ele tem o episódio completo: dica + conceito).
+
+Head obrigatório (sem bloco `<style>`):
 ```html
 <link rel="stylesheet" href="../slide-base.css">
 <script src="../deck-stage.js"></script>
 ```
 
-Não copie o bloco `<style>` — todos os estilos já estão em `docs/slide-base.css`. Substitua apenas:
-
-- `../deck-stage.js` — caminho relativo correto para qualquer subpasta de `docs/`
-- `../index.html` — link do botão `← Home`
-- Cor `--accent` no `:root` com a cor do tema
-- Todas as ocorrências de `<span>Claude Code</span>` nas tags → nome do tema
-- Conteúdo de cada slide conforme coletado no Passo 1
+Substitua no template:
+- Cor `--accent` no `:root` pela cor do tema
+- `<span>Claude Code</span>` nas tags → nome do tema correto
+- Conteúdo de cada slide pelo conteúdo gerado no Passo 2
+- Caminhos relativos (`../index.html`, `../mascot.svg`) já estão corretos para qualquer subpasta de `docs/`
 
 ### Regras dos slides
 
-**Tag de tema** — todas as tags usam o nome do tema (ex.: "AWS"), nunca "Conceito 00":
+**Tag de tema** — todas as tags usam o nome do tema, nunca "Conceito" ou número:
 ```html
 <div class="tag"><span class="tag-dot"></span><span>NOME DO TEMA</span></div>
 ```
 
-**Slide de Dica** — inclua `<div class="code-block">` apenas se houver código. Se não houver,
-remova o `style="margin-bottom: var(--gap-section);"` da `<ul>`.
+**Slide de Dica** — inclua `<div class="code-block">` apenas se houver código real. Se não houver, remova o `style="margin-bottom: var(--gap-section);"` da `<ul>`.
 
-**Slides de Conceito** — a `series-label` da capa do conceito deve usar o contexto, ex.:
-`"Contexto · Fundamentos"` ou `"Contexto · AWS Básico"`.
+**Bullets "Não resolve"** (Decisão) — dot e texto em `var(--text-muted)`:
+```html
+<span class="bullet-dot" style="background: var(--text-muted);"></span>
+<span style="color: var(--text-muted);">...</span>
+```
 
-**Bullets "Não resolve"** (CC-04) — use `background: var(--text-muted)` no dot e
-`color: var(--text-muted)` no texto para diferenciar visualmente.
+**Comparação** — use `resource-url--plain` para descrições em texto corrido:
+```html
+<span class="resource-url resource-url--plain">Descrição aqui</span>
+```
 
-**Comparação (CC-03)** — use a classe `resource-url--plain` para descrições em texto corrido (não URLs):
-`<span class="resource-url resource-url--plain">Descrição aqui</span>`
-
-**CTA toggle** — mantenha o script `setCTA()` inline no final do arquivo. O padrão é
-`setCTA('contribua')`. O slide "Saiba Mais" começa com `data-deck-skip`.
-
-**Footer de slides** — sempre use o padrão sem texto de handle:
+**Footer padrão** de cada slide:
 ```html
 <div style="margin-top: auto; padding-top: 32px;">
   <div class="divider" style="width: 100%;"></div>
 </div>
 ```
 
-**Animações** — gateadas em `[data-deck-active]` + `@media (prefers-reduced-motion: no-preference)`.
-O estado base é o end-state visível (correto para print e motion-off).
+**Slide Contribua** — usa `flex-shrink: 0` no footer (não `margin-top: auto`). URL de contato: `jonathancosta888@gmail.com`.
 
-## Passo 3 — Gerar o card para a home
+## Passo 4 — Inserir o card na home
 
-Forneça o bloco HTML do card para o usuário adicionar em `docs/index.html`:
+Edite `docs/index.html` diretamente. Não peça ao usuário para fazer isso manualmente.
+
+**Se o tema já existe**: insira o novo `<a class="card">` como último item dentro do `<div class="card-grid">` desse tema, antes do `</div>` de fechamento.
+
+**Se for um tema novo**: insira antes do comentário `<!-- Adicione novos temas -->` (ou antes do `<footer>`):
 
 ```html
-<a class="card" href="<tema>/<número>-<slug>.html">
-  <div class="card-theme theme-<classe-css>">
-    <span class="card-theme-dot"></span>
-    NOME DO TEMA
-  </div>
-  <div class="card-number">Dica #XX</div>
-  <div class="card-title">TÍTULO DA DICA</div>
-  <div class="card-desc">DESCRIÇÃO CURTA</div>
-  <span class="card-arrow">→</span>
-</a>
-```
-
-Se for o primeiro card de um tema novo, envolva com:
-```html
+<!-- ── NOME DO TEMA ── -->
 <div class="section-label">NOME DO TEMA</div>
 <div class="card-grid">
-  <!-- card aqui -->
+
+  <a class="card" href="<tema>/<número>-<slug>.html">
+    <div class="card-theme theme-<classe-css>">
+      <span class="card-theme-dot"></span>
+      NOME DO TEMA
+    </div>
+    <div class="card-number">Dica #NN</div>
+    <div class="card-title">TÍTULO DA DICA</div>
+    <div class="card-desc">DESCRIÇÃO CURTA (1–2 frases, máx. 120 chars)</div>
+    <span class="card-arrow">→</span>
+  </a>
+
 </div>
 ```
 
-Oriente o usuário a inserir esse bloco em `docs/index.html` antes do `<footer>`.
-
-## Notas de estilo
-
-- Títulos: sem ponto final, máx. 55 chars
-- Subtítulos: frase única, tom conversacional, máx. 70 chars
-- O SVG de mascote é padrão — use sempre o mesmo para consistência visual
-- Não adicione classes novas nem estilos inline além dos já presentes no arquivo de referência
+Use o número detectado no Passo 1. Após editar, confirme ao usuário o arquivo criado e o card inserido.
