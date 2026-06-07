@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+> **Última atualização:** 2026-06-07 19:08
+
 Este arquivo fornece orientações ao Claude Code (claude.ai/code) ao trabalhar neste repositório.
 
 ## Visão Geral do Projeto
@@ -16,14 +18,26 @@ docs/
 ├── slide-base.css      ← Sistema de design compartilhado para todos os decks
 ├── deck-stage.js       ← Web component que controla a navegação dos slides
 ├── mascot.svg          ← SVG do mascote usado nos slides de capa
-├── claude-code/
-│   ├── 01-configure-o-claude-md.html
-│   └── 02-o-que-e-claude-code.html
-├── aws/                ← (futuro)
-├── machine-learning/   ← (futuro)
-├── dados/              ← (futuro)
-└── analytics/          ← (futuro)
+└── claude-code/
+    ├── 01-configure-o-claude-md.html
+    ├── 02-o-que-e-claude-code.html
+    ├── 03-tipos-de-modelos.html
+    ├── 04-permissoes-e-seguranca.html
+    ├── 05-diretorio-claude.html
+    ├── 06-sessoes-e-projetos.html
+    ├── 07-prompt-engineering.html
+    ├── 08-slash-commands.html
+    ├── 09-plan-e-auto-edit-mode.html
+    ├── 10-gestao-da-janela-de-contexto.html
+    ├── 11-memoria-entre-sessoes.html
+    ├── 12-hooks.html
+    ├── 13-statusline.html
+    ├── 14-skills.html
+    ├── 15-mcps.html
+    └── 16-subagents.html
 ```
+
+Temas futuros planejados: `aws/`, `machine-learning/`, `dados/`, `analytics/`.
 
 **`docs/index.html`** — Página inicial. HTML simples (sem `deck-stage`) com grade de cards organizada por tema. Cada card linka para o arquivo do episódio. Para adicionar um novo episódio, insira um `<a class="card">` dentro do `<div class="card-grid">` do tema correspondente. Para um tema novo, adicione um bloco `<div class="section-label">` + `<div class="card-grid">` antes do `<footer>`.
 
@@ -36,6 +50,8 @@ docs/
 **`.claude/skills/new-tech-drop/SKILL.md`** — Skill para gerar novos episódios. Use `/new-tech-drop` ou peça ao Claude para criar um novo episódio.
 
 **`.claude/skills/review-tech-drop/SKILL.md`** — Skill para revisar episódios existentes com foco em aprendizado adulto. Use `/review-tech-drop`.
+
+**`.claude/hooks/validate-drop.sh`** — Hook `PostToolUse` que roda automaticamente após cada `Write` ou `Edit` em arquivos HTML de `docs/`. Valida invariantes estruturais (CSS linkado, script carregado, botão home, slides CTA presentes e em ordem, ausência de `<style>` inline extra). Grava log em `.claude/hooks/validate-drop.log` (ignorado pelo git).
 
 **`TODO.md`** — Lista de tarefas local. Ignorada pelo git.
 

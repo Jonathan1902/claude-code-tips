@@ -4,6 +4,28 @@ Série de conteúdo em português sobre tecnologia aplicada ao mercado financeir
 
 **Site ao vivo:** https://jonathan1902.github.io/claude-code-tips/
 
+## Episódios disponíveis
+
+### Claude Code
+| # | Título |
+|---|--------|
+| 01 | Configure o CLAUDE.md |
+| 02 | O que é o Claude Code |
+| 03 | Tipos de modelos |
+| 04 | Permissões e segurança |
+| 05 | Diretório .claude |
+| 06 | Sessões e projetos |
+| 07 | Prompt engineering |
+| 08 | Slash commands |
+| 09 | Plan e auto-edit mode |
+| 10 | Gestão da janela de contexto |
+| 11 | Memória entre sessões |
+| 12 | Hooks |
+| 13 | Statusline |
+| 14 | Skills |
+| 15 | MCPs |
+| 16 | Subagents |
+
 ## Como funciona
 
 Site estático puro (HTML + CSS + JS), sem build step, sem dependências, sem pipeline de CI. Edite os arquivos em `docs/` e faça push para a branch `gh-pages` — o deploy acontece imediatamente.
