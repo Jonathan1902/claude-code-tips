@@ -1,12 +1,12 @@
 ---
 name: new-tech-drop
 description: >
-  Generates a complete HTML file for a new Finance Tech Drops episode: one Tip slide + an optional Concept block (definition, comparison, decision, recap), following the exact design system and file structure of the project. Aim for up to 10 slides total. Use this skill whenever the user asks to create a new tip, a new drop, a new episode, or wants to add content — even if they just say "quero criar a dica #X" or "novo drop sobre Y".
+  Generates a complete HTML file for a new Jonnies Tech Drops episode: one Tip slide + an optional Concept block (definition, comparison, decision, recap), following the exact design system and file structure of the project. Aim for up to 10 slides total. Use this skill whenever the user asks to create a new tip, a new drop, a new episode, or wants to add content — even if they just say "quero criar a dica #X" or "novo drop sobre Y".
 ---
 
 # new-tech-drop
 
-Gera o arquivo HTML completo de um novo episódio Finance Tech Drops e insere o card na home automaticamente.
+Gera o arquivo HTML completo de um novo episódio Jonnies Tech Drops e insere o card na home automaticamente.
 
 ## Estrutura do projeto
 
@@ -113,7 +113,7 @@ Substitua no template:
 ```html
 <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
   <div class="slide-header">
-    <span class="brand">Finance Tech Drops</span>
+    <span class="brand">Jonnies Tech Drops</span>
     <div class="tag"><span class="tag-dot"></span><span>Saiba Mais</span></div>
   </div>
   <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
@@ -135,13 +135,13 @@ Substitua no template:
 ```html
 <section data-label="CTA · Contribua" data-screen-label="Contribua">
   <div class="slide-header">
-    <span class="brand">Finance Tech Drops</span>
+    <span class="brand">Jonnies Tech Drops</span>
     <div class="tag"><span class="tag-dot"></span><span>Participe</span></div>
   </div>
   <div class="contribute-body">
     <div>
       <h2 class="tip-title">Você usa isso no trabalho?</h2>
-      <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Finance Tech Drops.</p>
+      <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
     </div>
     <div class="contribute-box">
       <span class="contribute-cta">Enviar meu case</span>

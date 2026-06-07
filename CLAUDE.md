@@ -4,7 +4,7 @@ Este arquivo fornece orientações ao Claude Code (claude.ai/code) ao trabalhar 
 
 ## Visão Geral do Projeto
 
-Projeto de slides HTML estáticos para "Finance Tech Drops" — série de conteúdo em português sobre tecnologia para o mercado financeiro. O site é publicado no GitHub Pages a partir da pasta `docs/` na branch `gh-pages`.
+Projeto de slides HTML estáticos para "Jonnies Tech Drops" — série de conteúdo em português sobre tecnologia para o mercado financeiro. O site é publicado no GitHub Pages a partir da pasta `docs/` na branch `gh-pages`.
 
 Não há etapa de build, gerenciador de pacotes ou suite de testes. Todo o desenvolvimento é feito editando arquivos diretamente e visualizando no browser.
 

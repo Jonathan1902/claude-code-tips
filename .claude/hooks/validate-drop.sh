@@ -30,7 +30,7 @@ if [ "$BASENAME" = "index.html" ]; then
 
   if [ ${#ERRORS[@]} -gt 0 ]; then
     echo ""
-    echo "⚠️  Finance Tech Drops — validação: $BASENAME"
+    echo "⚠️  Jonnies Tech Drops — validação: $BASENAME"
     for e in "${ERRORS[@]}"; do echo "$e"; done
     echo ""
   fi
@@ -88,7 +88,7 @@ fi
 # Exibe resultado apenas se houver erros
 if [ ${#ERRORS[@]} -gt 0 ]; then
   echo ""
-  echo "⚠️  Finance Tech Drops — validação: $(basename "$FILE")"
+  echo "⚠️  Jonnies Tech Drops — validação: $(basename "$FILE")"
   for e in "${ERRORS[@]}"; do echo "$e"; done
   echo ""
 fi

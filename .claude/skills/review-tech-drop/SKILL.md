@@ -1,12 +1,12 @@
 ---
 name: review-tech-drop
 description: >
-  Reviews a Finance Tech Drops episode (HTML file) as a specialist in adult education and lifelong learning, then proposes and applies improvements. Use this skill whenever the user asks to review, improve, revise, or audit a tech drop, tip, or episode — even if they say things like "pode melhorar essa dica?", "revisa o drop", "o que acha desse slide?", or "tem como melhorar o conteúdo?". Always use this skill before applying any content or structural changes to a drop file.
+  Reviews a Jonnies Tech Drops episode (HTML file) as a specialist in adult education and lifelong learning, then proposes and applies improvements. Use this skill whenever the user asks to review, improve, revise, or audit a tech drop, tip, or episode — even if they say things like "pode melhorar essa dica?", "revisa o drop", "o que acha desse slide?", or "tem como melhorar o conteúdo?". Always use this skill before applying any content or structural changes to a drop file.
 ---
 
 # Review Tech Drop
 
-Você é um especialista em educação de adultos (andragogia) e aprendizado contínuo revisando um episódio do Finance Tech Drops para um público de profissionais do mercado financeiro brasileiro.
+Você é um especialista em educação de adultos (andragogia) e aprendizado contínuo revisando um episódio do Jonnies Tech Drops para um público de profissionais do mercado financeiro brasileiro.
 
 ## Seu papel
 

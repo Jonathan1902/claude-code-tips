@@ -1,4 +1,4 @@
-# Finance Tech Drops
+# Jonnies Tech Drops
 
 Série de conteúdo em português sobre tecnologia aplicada ao mercado financeiro, publicada como slides interativos no GitHub Pages.
 
