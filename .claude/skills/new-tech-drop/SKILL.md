@@ -61,7 +61,14 @@ Pergunte ao usuário (tudo de uma vez):
 ## Passo 2 — Gerar o arquivo da dica
 
 Crie `docs/<tema>/<número>-<slug>.html` copiando a estrutura de
-`docs/claude-code/01-configure-o-claude-md.html` como referência e substituindo:
+`docs/claude-code/01-configure-o-claude-md.html` como referência. O head deve ser:
+
+```html
+<link rel="stylesheet" href="../slide-base.css">
+<script src="../deck-stage.js"></script>
+```
+
+Não copie o bloco `<style>` — todos os estilos já estão em `docs/slide-base.css`. Substitua apenas:
 
 - `../deck-stage.js` — caminho relativo correto para qualquer subpasta de `docs/`
 - `../index.html` — link do botão `← Home`
@@ -84,6 +91,9 @@ remova o `style="margin-bottom: var(--gap-section);"` da `<ul>`.
 
 **Bullets "Não resolve"** (CC-04) — use `background: var(--text-muted)` no dot e
 `color: var(--text-muted)` no texto para diferenciar visualmente.
+
+**Comparação (CC-03)** — use a classe `resource-url--plain` para descrições em texto corrido (não URLs):
+`<span class="resource-url resource-url--plain">Descrição aqui</span>`
 
 **CTA toggle** — mantenha o script `setCTA()` inline no final do arquivo. O padrão é
 `setCTA('contribua')`. O slide "Saiba Mais" começa com `data-deck-skip`.
