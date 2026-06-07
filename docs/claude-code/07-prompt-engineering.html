@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering no Claude Code · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <section data-label="01 · Capa" data-screen-label="Prompt Engineering no Claude Code">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Prompts</span>
+          <h1 class="cover-title">Prompt Engineering no Claude Code</h1>
+          <p class="subtitle">Como pedir bem — a skill que multiplica o resultado do agente</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="02 · Dica" data-screen-label="Dica #06">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Dica #07 — Como escrever prompts que funcionam</h2>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Seja específico: arquivo, função, comportamento esperado e restrições</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Dê contexto suficiente: o que o código faz, o que não pode mudar, qual o ambiente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Peça um passo de cada vez — o agente erra menos quando o escopo é estreito</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Mostre o formato esperado: "retorne um dict <code>{ticker: var_pct}</code>" elimina idas e vindas</span>
+        </li>
+      </ul>
+
+      <div class="code-block" style="margin-top: var(--gap-section);"># ruim:
+"refatora a função de risco"
+
+# bom:
+"Refatore a função `calc_var()` em `risk/models.py`
+para aceitar séries temporais de 5 anos sem alterar
+a assinatura pública. Não modifique os testes existentes."</div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="03 · Definição" data-screen-label="Definição">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que é Prompt Engineering?</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">"A arte de estruturar instruções para que um agente
+de IA entenda exatamente o que você quer —
+e entregue sem adivinhar."</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Com agentes de código, cada lacuna no prompt vira uma <strong>decisão autônoma do agente</strong> — sem supervisão sua</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Não é sobre palavras mágicas — é sobre <strong>eliminar ambiguidade</strong></span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Um prompt bom inclui: <strong>contexto · objetivo · restrições · critério de sucesso</strong></span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="04 · Comparação" data-screen-label="Vago vs Médio vs Específico">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Três níveis de prompt</h2>
+        <p class="subtitle" style="margin-top: 14px;">A qualidade do output acompanha a qualidade do input</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">❌ Vago</span>
+          <span class="resource-url resource-url--plain">"melhora a performance do relatório" — o agente decide o que é melhorar, onde e como. Resultado imprevisível.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">⚠️ Médio</span>
+          <span class="resource-url resource-url--plain">"otimize a query do relatório de PnL" — melhor, mas ainda sem critério de sucesso nem restrições de ambiente.</span>
+        </div>
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">✅ Específico</span>
+          <span class="resource-url resource-url--plain">"Otimize a query em `reports/pnl.py` (linha 42) para rodar em menos de 2 s no PostgreSQL 15. Não altere o schema."</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="05 · Decisão" data-screen-label="Quando detalhar o prompt">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Quando vale detalhar o prompt?</h2>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Vale:</strong> refatorar `calc_var()` sem quebrar a assinatura pública usada por 3 módulos</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Vale:</strong> gerar relatório regulatório onde o formato de saída é exigência de compliance</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Vale:</strong> alterar lógica de precificação — qualquer erro tem impacto financeiro direto</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Prompt curto basta:</strong> criar fixture de teste sem consequências — detalhar aqui é desperdício de tempo</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Prompt curto basta:</strong> exploração inicial — deixe o agente propor e refine a partir da resposta</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="06 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+        <p class="subtitle" style="margin-top: 14px;">Se o agente agir errado em produção, o prompt que você escreveu tem parte da culpa — o que você mudaria?</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Prompt vago = agente adivinha = resultado imprevisível</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Inclua: <strong>arquivo + função + restrições + critério de sucesso</strong></span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Em código financeiro, ambiguidade vira bug silencioso — 30 segundos de prompt evitam horas de debug em produção</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Recursos sobre como escrever prompts para agentes de código</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Guia de Prompt Engineering — Anthropic</span>
+          <span class="resource-url">docs.anthropic.com/pt/docs/build-with-claude/prompt-engineering/overview</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Boas práticas para agentes de código</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/best-practices</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Prompting interativo no Claude Code (CLAUDE.md)</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/memory</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>

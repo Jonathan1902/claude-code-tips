@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O diretório .claude · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <section data-label="01 · Capa" data-screen-label="O diretório .claude">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Configuração</span>
+          <h1 class="cover-title">O diretório .claude</h1>
+          <p class="subtitle">Onde vivem as configurações, hooks e skills do seu agente</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="02 · Dica #05" data-screen-label="Dica #05">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Dica #05 — O diretório .claude</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">.claude/
+├── settings.json   ← permissões e variáveis de ambiente
+├── hooks/          ← scripts automáticos por evento
+│   └── pre-commit.sh
+└── skills/         ← comandos customizados do agente
+    └── meu-skill/
+        └── SKILL.md</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><code>.claude/</code> é a pasta de configuração do agente — análoga ao <code>.github/</code> para Actions</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Versionada junto com o código — toda a equipe herda as mesmas configurações automaticamente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Uma pasta, três camadas — a equipe toda herda <strong>as mesmas regras e automações</strong> sem configurar nada manualmente em cada máquina</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="03 · Definição" data-screen-label="Definição">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que cada peça faz</h2>
+        <p class="subtitle" style="margin-top: 14px;">Configuração, automação e extensão em uma pasta só</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>settings.json</strong> — define quais ferramentas o agente pode usar (allowlist/denylist) e injeta variáveis de ambiente no contexto do Claude</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>hooks/</strong> — scripts shell disparados em eventos do ciclo de vida do agente (antes de commitar, após editar um arquivo, ao finalizar uma tarefa). Exemplo: validar automaticamente um <code>risk_model.py</code> antes de qualquer commit</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>skills/</strong> — comandos customizados em Markdown que ensinam ao agente fluxos específicos do seu projeto via slash commands (<code>/meu-skill</code>)</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="04 · Comparação" data-screen-label="Comparação">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Três arquivos, três responsabilidades</h2>
+        <p class="subtitle" style="margin-top: 14px;">Cada um cobre uma camada diferente do comportamento do agente</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">settings.json</span>
+          <span class="resource-url resource-url--plain">Governa o que o agente pode fazer. Allowlist de ferramentas, denylist de comandos sensíveis e variáveis de ambiente injetadas no contexto.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">hooks/</span>
+          <span class="resource-url resource-url--plain">Governa quando scripts externos rodam. Reações automáticas a eventos: pré-commit, pós-edição de arquivo, pós-tarefa concluída.</span>
+        </div>
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">skills/</span>
+          <span class="resource-url resource-url--plain">Governa o que o agente sabe fazer. Slash commands customizados que codificam fluxos de trabalho do time em instruções reutilizáveis.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="05 · Decisão" data-screen-label="Quando usar">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">.claude/ resolve o seu caso?</h2>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> validar arquivos de risco (ex: <code>risk_model.py</code>) com um hook antes de qualquer commit chegar ao repo</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Resolve:</strong> restringir tools em produção via denylist no <code>settings.json</code> — o agente não pode deletar arquivos nem rodar migrações sem aprovação explícita</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> controle de acesso a nível de usuário — <code>settings.json</code> é por projeto, não por pessoa</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não resolve:</strong> segredos sensíveis como tokens de API — use um gerenciador de segredos externo, não o <code>settings.json</code></span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="06 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+        <p class="subtitle" style="margin-top: 14px;">Qual arquivo você usaria para bloquear um comando perigoso no seu repo?</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><code>.claude/</code> é o <strong>hub central</strong> do agente no seu repo — configuração, automação e skills em um lugar só</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Versionar <code>.claude/</code> garante que <strong>todo o time opera com as mesmas regras</strong> — sem configuração manual por máquina</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>No mercado financeiro: use hooks para guardiões de qualidade e <code>settings.json</code> para <strong>limitar o raio de ação</strong> em ambientes críticos</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Documentação oficial sobre configuração do agente</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Configurando o Claude Code (settings)</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/settings</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Hooks — automatizando ações do agente</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/hooks</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Slash commands e skills customizados</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/slash-commands</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>

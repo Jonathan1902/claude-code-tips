@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessões e Projetos no Claude Code · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <section data-label="01 · Capa" data-screen-label="Sessões e Projetos">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Fluxo de Trabalho</span>
+          <h1 class="cover-title">Sessões e Projetos no Claude Code</h1>
+          <p class="subtitle">Como o agente organiza o trabalho — e o que ele lembra entre conversas</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="02 · Dica" data-screen-label="Dica #05">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Dica #06 — Sessões e Projetos</h2>
+        <p class="subtitle" style="margin-top: 14px;">O que o Claude Code lembra — e o que você precisa gerenciar</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Uma <strong>sessão</strong> começa quando você digita <code>claude</code> e termina quando você sai — o contexto não persiste automaticamente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Projetos</strong> (<code>claude --project</code>) associam uma sessão a um diretório com CLAUDE.md próprio</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O histórico fica na <strong>janela de contexto</strong> — quando ela enche, o Claude comprime automaticamente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Para retomar: use <code>/resume</code> ou reabra o Claude no mesmo diretório — o CLAUDE.md recarrega o contexto</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="03 · Definição" data-screen-label="Definição">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que é uma sessão?</h2>
+        <p class="subtitle" style="margin-top: 14px;">A unidade básica de trabalho com o Claude Code</p>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">$ claude
+# Sessão iniciada — contexto começa vazio
+# Tudo nessa conversa vive aqui dentro
+
+> /exit   ← comando do Claude Code para encerrar
+# Sessão encerrada — histórico não persiste</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Cada execução de <code>claude</code> é uma nova conversa — sem memória automática do que foi feito antes</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O <strong>CLAUDE.md</strong> é o único mecanismo que persiste entre sessões — funciona como "briefing" automático para o agente</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>A janela de contexto tem limite — conversas longas são comprimidas automaticamente e detalhes antigos podem sumir</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="04 · Comparação" data-screen-label="Comparação">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Sessão, Projeto ou /resume?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Cada modo serve a um tipo de trabalho diferente</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">⚡ Sessão simples — <code>claude</code></span>
+          <span class="resource-url resource-url--plain">Trabalho pontual e isolado. Contexto limpo a cada abertura. Ideal para tarefas rápidas sem continuidade.</span>
+        </div>
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">📁 Projeto — <code>claude --project</code></span>
+          <span class="resource-url resource-url--plain">Associa a sessão a um diretório com CLAUDE.md próprio. Carrega contexto, regras e preferências do projeto automaticamente.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">↩ Retomar — <code>/resume</code></span>
+          <span class="resource-url resource-url--plain">Volta ao histórico de uma sessão anterior. Útil quando a janela de contexto foi interrompida no meio do trabalho.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="05 · Decisão" data-screen-label="Quando usar cada modo">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Qual modo usar no seu trabalho?</h2>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Sessão simples:</strong> corrigir um bug pontual no módulo de cálculo de risco — sem precisar carregar todo o contexto do repo</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Projeto:</strong> repositório de relatórios regulatórios de longa duração em compliance — regras e padrões persistem via CLAUDE.md</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>/resume:</strong> retomar uma refatoração grande interrompida no meio — o histórico da conversa é restaurado</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Atenção:</strong> sem um CLAUDE.md configurado, preferências e padrões do projeto se perdem a cada nova sessão — crie um para cada repositório relevante</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Atenção:</strong> contexto não é infinito — em sessões muito longas o agente comprime o histórico e detalhes do início podem desaparecer</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="06 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+        <p class="subtitle" style="margin-top: 14px;">Pense num projeto real seu: qual desses modos você usaria amanhã?</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Sessões são <strong>efêmeras</strong> — use para tarefas pontuais; não dependa de memória automática entre dias</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Para repositórios de longa duração — compliance, modelos, relatórios — configure um <strong>CLAUDE.md</strong> e use <code>--project</code></span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Interrompeu uma refatoração no meio? Use <strong>/resume</strong> para voltar exatamente de onde parou</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Documentação oficial sobre sessões, projetos e contexto no Claude Code</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Documentação oficial do Claude Code</span>
+          <span class="resource-url">docs.anthropic.com/en/docs/claude-code/overview</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Memória e CLAUDE.md — contexto persistente entre sessões</span>
+          <span class="resource-url">docs.anthropic.com/en/docs/claude-code/memory</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Gerenciamento de sessões e projetos</span>
+          <span class="resource-url">docs.anthropic.com/en/docs/claude-code/projects</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>

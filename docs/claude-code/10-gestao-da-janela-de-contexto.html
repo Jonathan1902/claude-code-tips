@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão da Janela de Contexto · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <!-- 01 · Capa -->
+    <section data-label="01 · Capa" data-screen-label="Gestão da Janela de Contexto">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Contexto</span>
+          <h1 class="cover-title">Gestão da Janela de Contexto</h1>
+          <p class="subtitle">O que acontece quando o agente "esquece" — e como evitar isso</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 02 · Dica -->
+    <section data-label="02 · Dica" data-screen-label="Dica #10">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Dica #10 — Janela de Contexto</h2>
+        <p class="subtitle" style="margin-top: 14px;">A memória de trabalho do agente tem limite</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>A janela de contexto é a <strong>memória de trabalho do agente</strong> — tudo que ele lê e escreve na sessão ocupa espaço</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Sinais de alerta:</strong> respostas mais genéricas, o agente "esquece" decisões tomadas na sessão</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Existem <strong>3 estratégias</strong> — cada uma serve a um momento diferente</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 03 · Definição -->
+    <section data-label="03 · Definição" data-screen-label="Definição">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que é a janela de contexto?</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">conversa + arquivos + comandos → janela enche → compaction automática</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Inclui: histórico da conversa, arquivos lidos, saída de comandos, diffs gerados</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O modelo não tem memória entre sessões — cada <code>/clear</code> zera completamente o contexto</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>A compaction automática resume o histórico antigo, mas detalhes sutis podem se perder</span>
+        </li>
+      </ul>
+
+      <div class="visual-placeholder" style="margin-top: var(--gap-section);">Diagrama: barra de contexto enchendo → compaction → espaço liberado</div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 04 · Comparação -->
+    <section data-label="04 · Comparação" data-screen-label="Comparação de Estratégias">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Estratégias de gestão de contexto</h2>
+        <p class="subtitle" style="margin-top: 14px;">Cada abordagem serve a um momento diferente</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">⚙️ Compaction automática</span>
+          <span class="resource-url resource-url--plain">Zero esforço, acontece sozinha. Risco: perde nuances de decisões anteriores na sessão.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">🔄 /clear — reiniciar sessão</span>
+          <span class="resource-url resource-url--plain">Zera tudo. Ideal quando a tarefa mudou ou o agente parece desorientado.</span>
+        </div>
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">📄 CLAUDE.md — contexto permanente</span>
+          <span class="resource-url resource-url--plain">Decisões arquiteturais e regras do projeto sobrevivem a qualquer reinício de sessão.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">✂️ Tarefas menores e focadas</span>
+          <span class="resource-url resource-url--plain">Divida problemas grandes em sessões curtas. Menos contexto consumido, menos risco de compaction.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 05 · Decisão -->
+    <section data-label="05 · Decisão" data-screen-label="Quando reiniciar vs. continuar">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Reiniciar ou continuar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Dois sintomas que pedem /clear imediato</p>
+      </div>
+
+      <ul class="bullets" style="margin-bottom: var(--gap-section);">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Continue:</strong> revisando um módulo de cálculo de risco — o agente ainda lembra o contexto e as regras de negócio discutidas</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Continue:</strong> ajustando relatório de compliance na mesma sessão — a conversa é coerente e focada</span>
+        </li>
+        <li style="list-style: none; padding: 8px 0 4px 0; color: var(--text-muted); font-size: 0.85em; letter-spacing: 0.04em;">
+          <span></span>
+          <span>— Não resolve continuar —</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Agente sugere abordagem já descartada</strong> — sinal de compaction perdendo decisões críticas da sessão</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Mudança de escopo na mesma sessão</strong> — de análise de risco para automação de onboarding; contexto acumulado vira ruído</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 06 · Recap -->
+    <section data-label="06 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+        <p class="subtitle" style="margin-top: 14px;">Você conseguiria identificar uma janela cheia agora?</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Janela de contexto = <strong>memória da sessão</strong> — tem limite e não persiste entre sessões</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Compaction automática é conveniente mas pode <strong>apagar nuances importantes</strong></span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Use <strong>CLAUDE.md para o que não pode ser esquecido</strong> — regras de compliance, lógica de negócio, restrições regulatórias e decisões de arquitetura que devem sobreviver a qualquer reinício de sessão</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Sessões curtas e focadas</strong> são mais eficientes do que uma sessão longa e genérica</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 07 · Saiba Mais -->
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Recursos sobre contexto e compaction no Claude Code</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Gerenciando contexto no Claude Code</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/context</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Como funciona a compaction automática</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/memory</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Configurando CLAUDE.md para contexto persistente</span>
+          <span class="resource-url">docs.anthropic.com/claude-code/claude-md</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 08 · Contribua -->
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>

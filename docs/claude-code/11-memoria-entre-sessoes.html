@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memória entre Sessões · Jonnies Tech Drops</title>
+  <link rel="stylesheet" href="../slide-base.css">
+  <script src="../deck-stage.js"></script>
+</head>
+<body>
+
+  <a class="home-btn" href="../index.html">← Home</a>
+
+  <deck-stage width="1080" height="1080" no-rail>
+
+    <!-- 01 · Capa -->
+    <section data-label="01 · Capa" data-screen-label="Memória entre Sessões">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-text">
+          <span class="series-label">Claude Code · Memória</span>
+          <h1 class="cover-title">Memória entre Sessões</h1>
+          <p class="subtitle">O Claude não lembra de ontem — mas você pode mudar isso</p>
+        </div>
+        <div class="cover-mascot">
+          <div class="mascot-wrap">
+            <img src="../mascot.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 02 · Dica -->
+    <section data-label="02 · Dica #10" data-screen-label="Dica #10">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Dica #10 — Memória entre Sessões</h2>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Por padrão, cada sessão começa do zero — o agente não tem memória persistente entre conversas</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O <strong>CLAUDE.md</strong> é a forma mais simples de memória: tudo que está nele é carregado em toda sessão do projeto</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O comando <strong>/memory</strong> permite salvar fatos que o agente recupera automaticamente nas próximas sessões</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 03 · Definição -->
+    <section data-label="03 · Definição" data-screen-label="Definição">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que é memória no Claude Code?</h2>
+      </div>
+
+      <div class="code-block" style="margin-bottom: var(--gap-section);">Memória = informação salva em arquivo que o agente
+carrega automaticamente na próxima sessão.</div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O modelo em si não guarda nada — cada sessão começa com o contexto em branco</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>A "memória" existe em <strong>arquivos</strong> que o agente lê no início de cada sessão</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Você decide o que vai para o <strong>CLAUDE.md</strong>, o que vai para <strong>/memory</strong> e o que fica só na sessão atual</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 04 · Comparação -->
+    <section data-label="04 · Comparação" data-screen-label="Comparação">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">Três formas de memória</h2>
+        <p class="subtitle" style="margin-top: 14px;">Cada uma serve a um propósito diferente</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">📄 CLAUDE.md</span>
+          <span class="resource-url resource-url--plain">Carregado automaticamente em todo projeto. Ideal para stack, restrições e convenções fixas do time.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">🗂️ Arquivos de memória (/memory)</span>
+          <span class="resource-url resource-url--plain">Fatos e preferências que evoluem ao longo do tempo. Salvos e recuperados pelo agente sob demanda.</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">💬 Contexto da sessão</span>
+          <span class="resource-url resource-url--plain">Existe apenas enquanto a conversa está aberta. Não persiste — se fechar, sumiu.</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 05 · Decisão -->
+    <section data-label="05 · Decisão" data-screen-label="O que persiste?">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que vai para onde?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Exemplos do mercado financeiro</p>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>CLAUDE.md:</strong> "Modelos de risco nunca usam dados após o corte regulatório" — regra do projeto, sempre ativa</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Memória:</strong> "O time prefere pandas a polars para relatórios" — preferência que pode mudar, registrada via /memory</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não precisa persistir:</strong> dúvidas pontuais de uma análise exploratória — fique no contexto da sessão</span>
+        </li>
+        <li>
+          <span class="bullet-dot" style="background: var(--text-muted);"></span>
+          <span style="color: var(--text-muted);"><strong>Não precisa persistir:</strong> rascunho de e-mail ou explicação de conceito — use o Chat Web</span>
+        </li>
+      </ul>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 06 · Recap -->
+    <section data-label="06 · Recap" data-screen-label="Recap">
+
+      <div class="tip-header slide-header">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Claude Code</span>
+        </div>
+        <span class="brand">Jonnies Tech Drops</span>
+      </div>
+
+      <div class="tip-title-block">
+        <h2 class="tip-title">O que você leva daqui</h2>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <span class="bullet-dot"></span>
+          <span>O Claude Code <strong>não tem memória nativa</strong> — ela é construída com arquivos</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>CLAUDE.md</strong> para o que é fixo; <strong>/memory</strong> para o que evolui</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Cada vez que você fecha o terminal, o CLAUDE.md é o que garante que o agente retome de onde parou</span>
+        </li>
+      </ul>
+
+      <p class="subtitle" style="margin-top: 28px;">Você conseguiria explicar a diferença entre CLAUDE.md e /memory para um colega agora?</p>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 07 · Saiba Mais -->
+    <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Saiba Mais</span>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--gap-section); margin-bottom: var(--gap-section);">
+        <h2 class="tip-title">Quer aprofundar?</h2>
+        <p class="subtitle" style="margin-top: 14px;">Como configurar memória e CLAUDE.md no seu projeto</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource-card">
+          <span class="resource-title">Memória no Claude Code — documentação oficial</span>
+          <span class="resource-url">docs.anthropic.com/en/docs/claude-code/memory</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Configurando o CLAUDE.md — guia completo</span>
+          <span class="resource-url">docs.anthropic.com/en/docs/claude-code/settings</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">Boas práticas para instruções persistentes</span>
+          <span class="resource-url">docs.anthropic.com/en/docs/claude-code/best-practices</span>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 32px;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+    <!-- 08 · Contribua -->
+    <section data-label="CTA · Contribua" data-screen-label="Contribua">
+
+      <div class="slide-header">
+        <span class="brand">Jonnies Tech Drops</span>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Participe</span>
+        </div>
+      </div>
+
+      <div class="contribute-body">
+        <div>
+          <h2 class="tip-title">Você usa isso no trabalho?</h2>
+          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
+        </div>
+
+        <div class="contribute-box">
+          <span class="contribute-cta">Enviar meu case</span>
+          <span class="contribute-arrow">→</span>
+        </div>
+
+        <span class="contribute-url">jonathancosta888@gmail.com</span>
+      </div>
+
+      <div style="flex-shrink: 0;">
+        <div class="divider" style="width: 100%;"></div>
+      </div>
+
+    </section>
+
+  </deck-stage>
+
+</body>
+</html>
