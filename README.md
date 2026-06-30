@@ -4,7 +4,9 @@ Série de conteúdo em português sobre tecnologia aplicada ao mercado financeir
 
 **Site ao vivo:** https://jonathan1902.github.io/claude-code-tips/
 
-## Episódios disponíveis
+## Episódios criados
+
+Drops publicados (visíveis na home) são controlados por `docs/published.json`. Os demais existem no repositório e são acessíveis pela URL direta.
 
 ### Claude Code
 | # | Título |
@@ -36,7 +38,8 @@ Consulte o [CLAUDE.md](CLAUDE.md) para o guia completo de arquitetura, como cria
 
 ```
 docs/
-├── index.html          ← Home com os cards de todas as dicas
+├── index.html          ← Home com os cards das dicas publicadas
+├── published.json      ← Controle de visibilidade: define quais drops aparecem na home
 ├── slide-base.css      ← Sistema de design compartilhado
 ├── deck-stage.js       ← Web component de navegação dos slides
 ├── mascot.svg          ← Mascote usado nas capas

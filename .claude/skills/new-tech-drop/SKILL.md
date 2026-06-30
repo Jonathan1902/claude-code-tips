@@ -17,9 +17,9 @@ docs/
 ├── deck-stage.js                       ← Web component de navegação
 ├── mascot.svg                          ← Mascote usado nas capas
 ├── claude-code/
-│   ├── 01-configure-o-claude-md.html  ← referência: dica simples (sem bloco conceito, com Contribua)
+│   ├── 01-configure-o-claude-md.html  ← referência: dica simples (sem bloco conceito, sem Contribua)
 │   ├── 02-o-que-e-claude-code.html    ← referência: dica + bloco conceito, sem Contribua
-│   └── 03-tipos-de-modelos.html       ← referência: dica + bloco conceito completo, com Contribua
+│   └── 03-tipos-de-modelos.html       ← referência: dica + bloco conceito completo, sem Contribua
 ├── aws/
 ├── machine-learning/
 ├── dados/
@@ -188,4 +188,20 @@ Edite `docs/index.html` diretamente. Não peça ao usuário para fazer isso manu
 </div>
 ```
 
-Use o número detectado no Passo 1. Após editar, confirme ao usuário o arquivo criado e o card inserido.
+Use o número detectado no Passo 1.
+
+## Passo 5 — Controle de publicação
+
+O arquivo `docs/published.json` controla quais drops aparecem na home para os visitantes. Drops não listados ficam acessíveis pela URL direta mas não aparecem no index.
+
+**Pergunte ao usuário** se o drop deve ser publicado imediatamente ou ficar como rascunho (visível só pela URL direta). Se for publicar, adicione o href ao array do tema correspondente em `docs/published.json`:
+
+```json
+{
+  "claude-code": [
+    "claude-code/NN-slug.html"
+  ]
+}
+```
+
+Após editar, confirme ao usuário: arquivo criado, card inserido no index.html e status de publicação no published.json.
