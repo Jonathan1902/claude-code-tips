@@ -28,7 +28,7 @@
         <div class="cover-text">
           <span class="series-label">Claude Code · Modelos</span>
           <h1 class="cover-title">Escolha o modelo certo para cada tarefa</h1>
-          <p class="subtitle">Opus, Sonnet e Haiku têm perfis diferentes — saiba quando usar cada um</p>
+          <p class="subtitle">Fable, Opus, Sonnet e Haiku têm perfis diferentes — saiba quando usar cada um</p>
         </div>
         <div class="cover-mascot">
           <div class="mascot-wrap">
@@ -56,17 +56,21 @@
 
       <div class="tip-title-block">
         <h2 class="tip-title">Cada modelo tem um perfil — e um custo</h2>
-        <p class="subtitle" style="margin-top: 14px;">Dica #02 · Modelos</p>
+        <p class="subtitle" style="margin-top: 14px;">Escolha o modelo certo para cada tarefa</p>
       </div>
 
       <ul class="bullets">
         <li>
           <span class="bullet-dot"></span>
-          <span><strong>Opus</strong> — mais capaz e mais caro; para tarefas complexas e de alto impacto</span>
+          <span><strong>Fable</strong> — criado a partir do Mythos, para tarefas complexas de longa duração que exigem julgamento — atualmente indisponível</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span><strong>Sonnet</strong> — equilíbrio custo/qualidade; padrão do Claude Code, serve a maioria dos casos</span>
+          <span><strong>Opus</strong> — para tarefas complexas e de alto impacto, que exigem raciocínio profundo</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Sonnet</strong> — equilíbrio custo/qualidade; padrão no Claude Code, serve a maioria dos casos</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
@@ -95,10 +99,11 @@
         <h2 class="tip-title">O que é uma família de modelos?</h2>
       </div>
 
-      <div class="code-block" style="margin-bottom: var(--gap-section);">Pense como categorias de analistas:
-  Sênior (Opus)  → raciocínio profundo, hora mais cara
-  Pleno (Sonnet) → resolve bem a maioria dos casos
-  Júnior (Haiku) → rápido para tarefas bem definidas</div>
+      <div class="code-block" style="margin-bottom: var(--gap-section);">Pense como categorias de atendimento:
+Haiku  → Pronto-socorro: rápido, problema bem definido
+Sonnet → Clínico geral: resolve bem a maioria dos casos
+Opus   → Especialista: diagnóstico profundo, porém mais caro
+Fable  → Médico pesquisador: projetos longos, autonomia total</div>
 
       <ul class="bullets">
         <li>
@@ -111,7 +116,11 @@
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Claude Code expõe essa escolha via <code>/model</code>; o padrão é Sonnet</span>
+          <span>Claude Code expõe essa escolha via <strong>/model</strong>; o padrão é Sonnet</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Curiosidade:</strong> Geralmente a cobrança é feita por token (entrada e saída), então usar o modelo certo gera economias significativas.</span>
         </li>
       </ul>
 
@@ -133,25 +142,30 @@
       </div>
 
       <div class="tip-title-block">
-        <h2 class="tip-title">Opus vs Sonnet vs Haiku</h2>
+        <h2 class="tip-title">Fable vs Opus vs Sonnet vs Haiku</h2>
         <p class="subtitle" style="margin-top: 14px;">Perfis lado a lado para você decidir</p>
       </div>
 
       <div class="resource-list">
         <div class="resource-card">
-          <span class="resource-title">🧠 Opus — Máxima capacidade</span>
-          <span class="resource-url resource-url--plain">Melhor raciocínio em tarefas ambíguas, longas e de alto risco. Custo mais alto por token.</span>
-          <span class="resource-url resource-url--plain">Evite quando: a tarefa é bem definida ou repetitiva — você pagará mais sem ganhar qualidade.</span>
-        </div>
-        <div class="resource-card" style="border-left-color: var(--accent);">
-          <span class="resource-title" style="color: var(--accent);">⚡ Sonnet — Padrão recomendado</span>
-          <span class="resource-url resource-url--plain">Equilíbrio entre qualidade e custo. Cobre a maioria dos casos de dev e automação.</span>
-          <span class="resource-url resource-url--plain">Evite quando: a tarefa é trivial (use Haiku) ou exige raciocínio muito profundo (use Opus).</span>
+          <span class="resource-title">🔬 Fable — Projetos longos e autônomos</span>
+          <span class="resource-url resource-url--plain">Autonomia máxima para tarefas estendidas e multi-etapas.</span>
+          <span class="resource-url resource-url--plain">Evite quando: o escopo é curto ou bem definido.</span>
         </div>
         <div class="resource-card">
-          <span class="resource-title">🚀 Haiku — Velocidade e economia</span>
-          <span class="resource-url resource-url--plain">Respostas rápidas para tarefas simples e repetitivas. Custo mais baixo por token.</span>
-          <span class="resource-url resource-url--plain">Evite quando: a tarefa é ambígua ou exige interpretação — erros podem custar mais que a economia.</span>
+          <span class="resource-title">🧠 Opus — Raciocínio profundo</span>
+          <span class="resource-url resource-url--plain">Melhor em tarefas ambíguas e de alto risco. Custo mais alto por token.</span>
+          <span class="resource-url resource-url--plain">Evite quando: a tarefa é bem definida ou repetitiva.</span>
+        </div>
+        <div class="resource-card" style="border-left-color: var(--accent);">
+          <span class="resource-title" style="color: var(--accent);">⚖️ Sonnet — Padrão recomendado</span>
+          <span class="resource-url resource-url--plain">Equilíbrio entre qualidade e custo. Cobre a maioria dos casos.</span>
+          <span class="resource-url resource-url--plain">Evite quando: a tarefa é trivial (Haiku) ou exige análise crítica (Opus).</span>
+        </div>
+        <div class="resource-card">
+          <span class="resource-title">⚡ Haiku — Velocidade e economia</span>
+          <span class="resource-url resource-url--plain">Ideal para tarefas simples e repetitivas. Custo mais baixo por token.</span>
+          <span class="resource-url resource-url--plain">Evite quando: a tarefa é ambígua — erros podem custar retrabalho.</span>
         </div>
       </div>
 
@@ -179,15 +193,15 @@
       <ul class="bullets">
         <li>
           <span class="bullet-dot"></span>
-          <span><strong>Opus:</strong> análise de risco em portfólio complexo — raciocínio profundo, vale o custo</span>
+          <span><strong>Opus:</strong> geração de narrativas a partir de dados complexos — raciocínio profundo, vale o custo</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span><strong>Sonnet:</strong> refatorar pipeline de dados ou revisar lógica de cálculo regulatório</span>
+          <span><strong>Sonnet:</strong> refatorar pipeline de dados ou revisar lógica de regras de negócio</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span><strong>Haiku:</strong> geração de relatórios padronizados ou scripts de compliance repetitivos</span>
+          <span><strong>Haiku:</strong> geração de relatórios padronizados ou scripts de consulta a dados</span>
         </li>
         <li>
           <span class="bullet-dot" style="background: var(--text-muted);"></span>
@@ -195,7 +209,7 @@
         </li>
         <li>
           <span class="bullet-dot" style="background: var(--text-muted);"></span>
-          <span style="color: var(--text-muted);"><strong>Não faz sentido:</strong> usar Haiku para interpretar regras de Basileia III em código legado</span>
+          <span style="color: var(--text-muted);"><strong>Não faz sentido:</strong> usar Haiku para implementar lógica de negócio complexa de múltiplas regras</span>
         </li>
       </ul>
 
@@ -224,7 +238,7 @@
       <ul class="bullets">
         <li>
           <span class="bullet-dot"></span>
-          <span>Existem três famílias: <strong>Opus</strong> (capaz), <strong>Sonnet</strong> (padrão) e <strong>Haiku</strong> (rápido)</span>
+          <span>Existem quatro famílias: <strong>Fable</strong> (criativo), <strong>Opus</strong> (capaz), <strong>Sonnet</strong> (padrão), <strong>Haiku</strong> (rápido)</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
@@ -233,6 +247,10 @@
         <li>
           <span class="bullet-dot"></span>
           <span>A regra prática: complexidade e ambiguidade → Opus; dúvida → Sonnet; repetição e volume → Haiku</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span>Apesar do Fable ser o mais potente, atualmente ele está indisponível no Claude Code</span>
         </li>
       </ul>
 
@@ -271,6 +289,18 @@
           <span class="resource-title">Como selecionar o modelo no Claude Code</span>
           <span class="resource-url">docs.anthropic.com/en/docs/claude-code/settings</span>
         </div>
+      </div>
+
+      <div class="resource-list">
+        <a class="resource-card" href="https://platform.claude.com/docs/en/about-claude/models/overview" target="_blank" rel="noopener">
+          <span class="resource-title">Visão geral dos modelos Claude</span>
+        </a>
+        <a class="resource-card" href="https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" target="_blank" rel="noopener">
+          <span class="resource-title">Como selecionar o modelo certo</span>
+        </a>
+        <a class="resource-card" href="https://claude.com/pricing#api" target="_blank" rel="noopener">
+          <span class="resource-title">Precificação APIs</span>
+        </a>
       </div>
 
       <div style="margin-top: auto; padding-top: 32px;">

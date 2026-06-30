@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dica #01 — Configure o CLAUDE.md · Jonnies Tech Drops</title>
+  <title>Dica #01 — Configurando o CLAUDE.md · Jonnies Tech Drops</title>
   <link rel="stylesheet" href="../slide-base.css">
   <script src="../deck-stage.js"></script>
 </head>
@@ -26,7 +26,7 @@
       <div class="cover-body">
         <div class="cover-text">
           <span class="series-label">Claude Code · Configuração</span>
-          <h1 class="cover-title">Configure o CLAUDE.md</h1>
+          <h1 class="cover-title">Configurando o CLAUDE.md</h1>
           <p class="subtitle">Defina o contexto do projeto antes de começar.</p>
         </div>
         <div class="cover-mascot">
@@ -53,8 +53,8 @@
       </div>
 
       <div class="tip-title-block">
-        <h2 class="tip-title">Configure o CLAUDE.md</h2>
-        <p class="subtitle" style="margin-top: 14px;">O arquivo que transforma o agente em um colega que conhece seu projeto</p>
+        <h2 class="tip-title">Configurando o CLAUDE.md</h2>
+        <p class="subtitle" style="margin-top: 14px;">O arquivo que transforma o agente em um colega que conhece o projeto</p>
       </div>
 
       <ul class="bullets" style="margin-bottom: var(--gap-section);">
@@ -64,7 +64,7 @@
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Documente restrições de compliance — o agente saberá o que nunca tocar</span>
+          <span>Documente restrições de compliance — o agente saberá o que <strong>nunca</strong> tocar</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
@@ -72,14 +72,15 @@
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Defina o que o agente pode e não pode alterar no codebase</span>
+          <span><strong>Atualize o arquivo CLAUDE.md</strong> conforme o projeto evolui — mantenha-o versionado</span>
         </li>
       </ul>
 
-      <div class="code-block"># CLAUDE.md — sistema de risco
+      <div class="code-block"># CLAUDE.md — Sistema Educacional
 Stack: Python + FastAPI + PostgreSQL
 Nunca modificar: /legacy/*, /migrations/*, /audit-logs/*
-Compliance: toda alteração em cálculo de VaR exige revisão manual</div>
+Compliance: toda alteração no banco de dados exige revisão 
+manual para avaliar se pode ser implementada</div>
 
       <div style="margin-top: auto; padding-top: 32px;">
         <div class="divider" style="width: 100%;"></div>
@@ -109,18 +110,18 @@ Compliance: toda alteração em cálculo de VaR exige revisão manual</div>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>O arquivo gerado é um ponto de partida, não uma versão final — revise antes de commitar</span>
+          <span>O arquivo gerado é um <strong>ponto de partida, não uma versão final</strong> — revise antes de commitar</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Acrescente contexto que o agente não consegue inferir só lendo o código: decisões de arquitetura, restrições regulatórias, acordos de equipe</span>
+          <span>Acrescente contexto que o agente não consegue inferir só lendo o código: decisões de arquitetura, restrições regulatórias, acordos de equipe, convenções de codificação</span>
         </li>
       </ul>
 
       <div class="code-block"># no terminal, dentro do projeto
 $ claude
 > /init
-# Claude analisa o codebase e cria o CLAUDE.md
+# Claude analisa o código e cria o CLAUDE.md
 # Revise, ajuste e faça o commit junto com o código</div>
 
       <div style="margin-top: auto; padding-top: 32px;">
@@ -147,20 +148,20 @@ $ claude
       <ul class="bullets" style="margin-bottom: var(--gap-section);">
         <li>
           <span class="bullet-dot"></span>
-          <span>Commite junto com o PR que muda stack, arquitetura ou padrões — o contexto evolui com o código</span>
+          <span>Commite junto com o PR que muda stack, arquitetura ou padrões — <strong>o contexto evolui com o código</strong></span>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Revise a cada marco importante: novo módulo, mudança de biblioteca, entrada de regulação</span>
+          <span><strong>Revise</strong> a cada marco importante: novo módulo, mudança de biblioteca, entrada de regulação</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Registre a data da última revisão no topo do arquivo — sinaliza para a equipe quando está ficando defasado</span>
+          <span><strong>Dica:</strong> Registre a data da última revisão no topo do arquivo — sinaliza para a equipe quando está ficando defasado</span>
         </li>
       </ul>
 
-      <div class="code-block"># CLAUDE.md — sistema de risco
-# Última revisão: 2025-06 (migração para FastAPI 0.115)
+      <div class="code-block"># CLAUDE.md — Sistema Educacional
+# Última revisão: 2026-06-15 (migração para FastAPI 0.115)
 Stack: Python + FastAPI + PostgreSQL</div>
 
       <div style="margin-top: auto; padding-top: 32px;">
@@ -191,7 +192,7 @@ Stack: Python + FastAPI + PostgreSQL</div>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span><strong>Pasta de módulo</strong> — regras específicas daquela área, sem poluir o contexto global</span>
+          <span><strong>Pasta de módulo</strong> — regras específicas daquele contexto, sem poluir o contexto global</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
@@ -202,9 +203,9 @@ Stack: Python + FastAPI + PostgreSQL</div>
       <div class="code-block">projeto/
 ├── CLAUDE.md        # regras globais
 ├── risco/
-│   └── CLAUDE.md    # regras do módulo de risco
+│   └── CLAUDE.md    # regras do módulo de notas
 └── relatorios/
-    └── CLAUDE.md    # relatórios regulatórios</div>
+    └── CLAUDE.md    # relatórios analiticos</div>
 
       <div style="margin-top: auto; padding-top: 32px;">
         <div class="divider" style="width: 100%;"></div>
@@ -229,16 +230,19 @@ Stack: Python + FastAPI + PostgreSQL</div>
 
       <div class="resource-list">
         <div class="resource-card">
-          <span class="resource-title">Documentação Oficial Claude Code</span>
-          <span class="resource-url">docs.anthropic.com/claude-code</span>
+          <a class="resource-title" href="https://code.claude.com/docs/en/features-overview#claude-md" target="_blank" rel="noopener">
+          <span class="resource-title">Sobre o CLAUDE.md</span>
+          </a>
         </div>
         <div class="resource-card">
-          <span class="resource-title">Configurando o CLAUDE.md</span>
-          <span class="resource-url">anthropic.com/docs/claude-code/memory</span>
+          <a class="resource-title" href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">
+            <span class="resource-title">Configurando a memória do Claude</span>
+          </a>
         </div>
         <div class="resource-card">
-          <span class="resource-title">Hierarquias e escopos de memória</span>
-          <span class="resource-url">anthropic.com/docs/claude-code/memory#files</span>
+          <a class="resource-title" href="https://code.claude.com/docs/en/best-practices#write-an-effective-claude-md" target="_blank" rel="noopener">
+            <span class="resource-title">Boas práticas para escrever um CLAUDE.md eficaz</span>
+          </a>
         </div>
       </div>
 
