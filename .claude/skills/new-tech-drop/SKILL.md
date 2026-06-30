@@ -17,8 +17,9 @@ docs/
 ├── deck-stage.js                       ← Web component de navegação
 ├── mascot.svg                          ← Mascote usado nas capas
 ├── claude-code/
-│   ├── 01-configure-o-claude-md.html  ← referência: dica simples (sem bloco conceito)
-│   └── 02-o-que-e-claude-code.html    ← referência: episódio completo (dica + conceito)
+│   ├── 01-configure-o-claude-md.html  ← referência: dica simples (sem bloco conceito, com Contribua)
+│   ├── 02-o-que-e-claude-code.html    ← referência: dica + bloco conceito, sem Contribua
+│   └── 03-tipos-de-modelos.html       ← referência: dica + bloco conceito completo, com Contribua
 ├── aws/
 ├── machine-learning/
 ├── dados/
@@ -62,7 +63,7 @@ Com base no briefing, crie o conteúdo completo do episódio. Mire em até 10 sl
   - **Decisão**: 2 bullets "Resolve" + 2 bullets "Não resolve" — use exemplos do mercado financeiro quando possível.
   - **Recap**: 3 frases curtas que fixam o conceito.
 - **Saiba Mais**: subtítulo que reflita o conteúdo específico do drop (ex.: `"Recursos para dominar o CLAUDE.md"`). Inclua 2–4 resource-cards com os links mais relevantes — quantidade livre, mesma estrutura HTML sempre.
-- **Contribua**: slide fixo, sem variação de conteúdo.
+- **Contribua** *(opcional)*: slide fixo, sem variação de conteúdo. Inclua quando o drop tiver conteúdo prático direto ao trabalho do leitor. Omita quando o episódio for mais conceitual (como o drop 02).
 
 Adapte o tom ao público: profissionais do mercado financeiro que codificam mas não são necessariamente devs full-time. Prefira exemplos concretos do setor (risco, compliance, relatórios, dados de mercado).
 
@@ -109,7 +110,7 @@ Substitua no template:
 </div>
 ```
 
-**Slide Saiba Mais** — o subtítulo deve refletir o conteúdo do drop (não uma frase genérica fixa). A quantidade de resource-cards é livre; a estrutura HTML é sempre a mesma:
+**Slide Saiba Mais** — o subtítulo deve refletir o conteúdo do drop (não uma frase genérica fixa). A quantidade de resource-cards é livre (2–4); cada card é um `<a>` com link real. Nunca use `<div class="resource-card">` com URL em texto puro — use sempre o padrão com `<a>`:
 ```html
 <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
   <div class="slide-header">
@@ -121,17 +122,16 @@ Substitua no template:
     <p class="subtitle" style="margin-top: 14px;">SUBTÍTULO ESPECÍFICO DO DROP</p>
   </div>
   <div class="resource-list">
-    <div class="resource-card">
+    <a class="resource-card" href="URL_DO_RECURSO" target="_blank" rel="noopener">
       <span class="resource-title">TÍTULO DO RECURSO</span>
-      <span class="resource-url">url.do.recurso.com</span>
-    </div>
-    <!-- repetir resource-card para cada link -->
+    </a>
+    <!-- repetir <a class="resource-card"> para cada link -->
   </div>
   <div style="margin-top: auto; padding-top: 32px;"><div class="divider" style="width: 100%;"></div></div>
 </section>
 ```
 
-**Slide Contribua** — estrutura fixa, nunca alterar conteúdo:
+**Slide Contribua** *(opcional)* — estrutura fixa, nunca alterar conteúdo. Quando incluído, deve ser o último slide:
 ```html
 <section data-label="CTA · Contribua" data-screen-label="Contribua">
   <div class="slide-header">

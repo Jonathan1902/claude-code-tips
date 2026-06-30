@@ -74,16 +74,14 @@ fi
 grep -q 'CTA · Saiba Mais' "$FILE" \
   || ERRORS+=("  ✗ [Saiba Mais]      Slide CTA · Saiba Mais ausente")
 
-# 6. slide Contribua presente e é o último slide não-skip
-grep -q 'CTA · Contribua' "$FILE" \
-  || ERRORS+=("  ✗ [Contribua]       Slide CTA · Contribua ausente — deve ser o último slide")
-
-# 7. Contribua vem depois de Saiba Mais (ordem)
-if grep -q 'CTA · Saiba Mais' "$FILE" && grep -q 'CTA · Contribua' "$FILE"; then
-  LINE_SAIBA=$(grep -n 'CTA · Saiba Mais' "$FILE" | head -1 | cut -d: -f1)
-  LINE_CONTRIBUA=$(grep -n 'CTA · Contribua' "$FILE" | head -1 | cut -d: -f1)
-  [ "$LINE_CONTRIBUA" -gt "$LINE_SAIBA" ] \
-    || ERRORS+=("  ✗ [ordem CTAs]      Contribua deve vir depois de Saiba Mais")
+# 6. slide Contribua: opcional — se presente, deve vir depois de Saiba Mais
+if grep -q 'CTA · Contribua' "$FILE"; then
+  if grep -q 'CTA · Saiba Mais' "$FILE"; then
+    LINE_SAIBA=$(grep -n 'CTA · Saiba Mais' "$FILE" | head -1 | cut -d: -f1)
+    LINE_CONTRIBUA=$(grep -n 'CTA · Contribua' "$FILE" | head -1 | cut -d: -f1)
+    [ "$LINE_CONTRIBUA" -gt "$LINE_SAIBA" ] \
+      || ERRORS+=("  ✗ [ordem CTAs]      Contribua deve vir depois de Saiba Mais")
+  fi
 fi
 
 # 8. Sem bloco <style> inline além do override de --accent permitido (máx. 1 bloco, somente :root)
