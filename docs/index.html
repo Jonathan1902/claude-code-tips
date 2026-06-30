@@ -177,6 +177,10 @@
       transform: translateX(4px);
     }
 
+    /* ── Publish gate ── */
+    .page { visibility: hidden; }
+    .page.ready { visibility: visible; }
+
     /* ── Footer ── */
     .site-footer {
       border-top: 1px solid var(--divider);
@@ -384,5 +388,22 @@
     </footer>
 
   </div>
+  <script>
+    fetch('published.json')
+      .then(r => r.json())
+      .then(config => {
+        const published = new Set(Object.values(config).flat());
+        document.querySelectorAll('.card').forEach(card => {
+          if (!published.has(card.getAttribute('href'))) card.remove();
+        });
+        // hide empty grids
+        document.querySelectorAll('.card-grid').forEach(grid => {
+          if (!grid.querySelector('.card')) grid.previousElementSibling.remove(), grid.remove();
+        });
+      })
+      .finally(() => {
+        document.querySelector('.page').classList.add('ready');
+      });
+  </script>
 </body>
 </html>
