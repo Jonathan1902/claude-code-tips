@@ -62,11 +62,15 @@
       <ul class="bullets">
         <li>
           <span class="bullet-dot"></span>
-          <span><strong>Regra de ouro:</strong> nunca conceda permissão irrestrita em repositórios de produção — autonomia total só em ambiente de desenvolvimento</span>
+          <span>O agente tem permissões granulares: <strong>leitura</strong> (baixo risco), <strong>edição</strong> (médio) e <strong>execução de comandos</strong> (alto) — cada nível exige um nível de controle diferente</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
           <span>O agente pede aprovação antes de ações destrutivas — mas você controla exatamente o que ele pode ou não tocar</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>Regra de ouro:</strong> nunca conceda permissão irrestrita em repositórios de produção — autonomia total só em ambiente de desenvolvimento</span>
         </li>
       </ul>
 
@@ -165,14 +169,13 @@ e quando ele precisa da sua aprovação."</div>
       </div>
 
       <div class="tip-title-block">
-        <h2 class="tip-title">Onde usar cada modo no mercado financeiro?</h2>
+        <h2 class="tip-title">Onde usar cada modo no ambiente profissional?</h2>
       </div>
-
-      <p class="subtitle" style="margin-bottom: 10px; font-size: 0.82em; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted);">✅ Use assim</p>
+      
       <ul class="bullets" style="margin-bottom: var(--gap-section);">
         <li>
           <span class="bullet-dot"></span>
-          <span><strong>Padrão:</strong> proteger arquivos de cálculo de VaR e scripts de precificação — aprovação obrigatória antes de qualquer edição</span>
+          <span><strong>Padrão:</strong> proteger arquivos de cálculo e regras de negócio — aprovação obrigatória antes de qualquer edição</span>
         </li>
         <li>
           <span class="bullet-dot"></span>
@@ -180,19 +183,22 @@ e quando ele precisa da sua aprovação."</div>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span><strong>Plan:</strong> revisar a estratégia de refatoração de um motor de risco antes de o agente tocar no código</span>
+          <span><strong>Plan:</strong> revisar a estratégia de refatoração de um motor de cálculo antes de o agente modificar o código</span>
+        </li>
+        <li>
+          <span class="bullet-dot"></span>
+          <span><strong>CI/CD:</strong> configure pipelines para exigir aprovação humana antes de deploys — não delegue esse controle ao agente</span>
         </li>
       </ul>
 
-      <p class="subtitle" style="margin-bottom: 10px; font-size: 0.82em; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted);">🚫 Evite</p>
       <ul class="bullets" style="margin-bottom: var(--gap-section);">
         <li>
           <span class="bullet-dot" style="background: var(--text-muted);"></span>
-          <span style="color: var(--text-muted);"><strong>Auto-edit em produção:</strong> repositórios com dados regulatórios sensíveis exigem aprovação em cada mudança</span>
+          <span style="color: var(--text-muted);"><strong>Cuidado com auto-edit em produção:</strong> repositórios com dados regulatórios sensíveis exigem aprovação em cada mudança</span>
         </li>
         <li>
           <span class="bullet-dot" style="background: var(--text-muted);"></span>
-          <span style="color: var(--text-muted);"><strong>Permissão irrestrita de deploy:</strong> comandos de publicação sempre devem passar pela sua aprovação explícita</span>
+          <span style="color: var(--text-muted);"><strong>Cuidado com permissão irrestrita de deploy:</strong> comandos de publicação sempre devem passar pela sua aprovação explícita</span>
         </li>
       </ul>
 
@@ -233,7 +239,7 @@ e quando ele precisa da sua aprovação."</div>
         </li>
         <li>
           <span class="bullet-dot"></span>
-          <span>Em finanças: <strong>produção sempre em modo padrão</strong> — autonomia total só em ambiente de desenvolvimento</span>
+          <span>Use o modo <strong>Plan</strong> antes de agir em repos críticos — revisar a estratégia antes da execução reduz riscos de implementação</span>
         </li>
       </ul>
 
@@ -243,7 +249,7 @@ e quando ele precisa da sua aprovação."</div>
 
     </section>
 
-    <!-- 07 · Saiba Mais -->
+    <!-- CTA · Saiba Mais -->
     <section data-label="CTA · Saiba Mais" data-screen-label="Saiba Mais">
 
       <div class="slide-header">
@@ -260,52 +266,18 @@ e quando ele precisa da sua aprovação."</div>
       </div>
 
       <div class="resource-list">
-        <div class="resource-card">
-          <span class="resource-title">Permissões e configurações de segurança</span>
-          <span class="resource-url">docs.anthropic.com/claude-code/settings</span>
-        </div>
-        <div class="resource-card">
-          <span class="resource-title">Referência completa do settings.json</span>
-          <span class="resource-url">docs.anthropic.com/claude-code/security</span>
-        </div>
-        <div class="resource-card">
-          <span class="resource-title">Modos de operação e controle de autonomia</span>
-          <span class="resource-url">docs.anthropic.com/claude-code/permissions</span>
-        </div>
+        <a class="resource-card" href="https://code.claude.com/docs/en/permissions" target="_blank" rel="noopener">
+          <span class="resource-title">Configuração de Permissões</span>
+        </a>
+        <a class="resource-card" href="https://github.com/mattpocock/skills/blob/main/skills/misc/git-guardrails-claude-code/SKILL.md" target="_blank" rel="noopener">
+          <span class="resource-title">Como proteger o Claude de executar comandos perigosos</span>
+        </a>
+        <a class="resource-card" href="https://support.claude.com/en/articles/14661296-use-claude-security" target="_blank" rel="noopener">
+          <span class="resource-title">Verificação de Vulnerabilidades</span>
+        </a>
       </div>
 
       <div style="margin-top: auto; padding-top: 32px;">
-        <div class="divider" style="width: 100%;"></div>
-      </div>
-
-    </section>
-
-    <!-- 08 · Contribua -->
-    <section data-label="CTA · Contribua" data-screen-label="Contribua">
-
-      <div class="slide-header">
-        <span class="brand">Jonnies Tech Drops</span>
-        <div class="tag">
-          <span class="tag-dot"></span>
-          <span>Participe</span>
-        </div>
-      </div>
-
-      <div class="contribute-body">
-        <div>
-          <h2 class="tip-title">Você usa isso no trabalho?</h2>
-          <p class="subtitle" style="margin-top: 16px;">Compartilhe seu caso real e apareça na próxima edição do Jonnies Tech Drops.</p>
-        </div>
-
-        <div class="contribute-box">
-          <span class="contribute-cta">Enviar meu case</span>
-          <span class="contribute-arrow">→</span>
-        </div>
-
-        <span class="contribute-url">jonathancosta888@gmail.com</span>
-      </div>
-
-      <div style="flex-shrink: 0;">
         <div class="divider" style="width: 100%;"></div>
       </div>
 
