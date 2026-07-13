@@ -2,6 +2,7 @@
   "claude-code": [
     "claude-code/02-o-que-e-claude-code.html",
     "claude-code/01-configure-o-claude-md.html",
-    "claude-code/03-tipos-de-modelos.html"
+    "claude-code/03-tipos-de-modelos.html",
+    "claude-code/04-permissoes-e-seguranca.html"
   ]
 }
